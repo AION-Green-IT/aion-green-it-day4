@@ -14,7 +14,7 @@
  */
 
 import { useHydrated, useProgress } from "@/lib/store";
-import { MATERIAL, SIGNALS, TASK1 } from "@/lib/module3";
+import { BUCKETS, MATERIAL, SIGNALS, TASK1 } from "@/lib/module3";
 
 export const L1 = {
   materialKey: "l1:material",
@@ -93,4 +93,37 @@ export function bucketCounts(
     if (b in counts) counts[b] += 1;
   }
   return counts;
+}
+
+export type Level1Note = {
+  hydrated: boolean;
+  name: string;
+  placements: Record<string, string>;
+  counts: Record<string, number>;
+  gaps: string; // reflection field A
+  opsVsStrategic: string; // reflection field B
+  /** True once Level 1 has produced a usable Diagnostic Note. */
+  hasNote: boolean;
+};
+
+/**
+ * Level 1's saved Diagnostic Note, read straight from the shared store so
+ * Level 2 can reference it without the learner re-entering anything.
+ */
+export function useLevel1Note(): Level1Note {
+  const state = useLevel1();
+  const notes = useProgress((s) => s.notes);
+  const counts = bucketCounts(state.placements, BUCKETS.map((b) => b.id));
+  const gaps = notes[L1.fieldA] ?? "";
+  const opsVsStrategic = notes[L1.fieldB] ?? "";
+
+  return {
+    hydrated: state.hydrated,
+    name: notes[L1.nameKey] ?? "",
+    placements: state.placements,
+    counts,
+    gaps,
+    opsVsStrategic,
+    hasNote: state.allSorted && gaps.trim().length > 0 && opsVsStrategic.trim().length > 0,
+  };
 }

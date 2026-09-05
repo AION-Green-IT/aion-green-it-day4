@@ -5,7 +5,14 @@
  * disconnection the learner is about to diagnose. Single-colour line work;
  * the sustainability node is the only muted element.
  */
-export function NetworkMotif({ className }: { className?: string }) {
+export function NetworkMotif({
+  className,
+  pulseProcurement = false,
+}: {
+  className?: string;
+  /** Level 2: add a faintly pulsing Procurement node to hint the recurring lever. */
+  pulseProcurement?: boolean;
+}) {
   const nodes = [
     { id: "systems", x: 96, y: 60, label: "Systems" },
     { id: "platforms", x: 176, y: 40, label: "Platforms" },
@@ -25,6 +32,7 @@ export function NetworkMotif({ className }: { className?: string }) {
   const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
   const sustain = { x: 300, y: 176 };
   const nearest = byId["devices"];
+  const proc = { x: 150, y: 182 };
 
   return (
     <svg
@@ -71,6 +79,22 @@ export function NetworkMotif({ className }: { className?: string }) {
           </g>
         ))}
       </g>
+
+      {/* Level 2 only: the recurring Procurement lever, pulsing faintly */}
+      {pulseProcurement ? (
+        <g>
+          <line x1={byId["erp"].x} y1={byId["erp"].y} x2={proc.x} y2={proc.y} stroke="#0E7A5A" strokeWidth="1.4" opacity="0.5" strokeLinecap="round" />
+          <line x1={byId["cloud"].x} y1={byId["cloud"].y} x2={proc.x} y2={proc.y} stroke="#0E7A5A" strokeWidth="1.4" opacity="0.5" strokeLinecap="round" />
+          <g className="motif-pulse" style={{ transformOrigin: `${proc.x}px ${proc.y}px` }}>
+            <circle cx={proc.x} cy={proc.y} r="14" fill="#0E7A5A" opacity="0.12" />
+            <circle cx={proc.x} cy={proc.y} r="8" fill="#FFFFFF" stroke="#0E7A5A" strokeWidth="1.8" />
+            <circle cx={proc.x} cy={proc.y} r="2.6" fill="#0E7A5A" />
+          </g>
+          <text x={proc.x} y={proc.y + 26} textAnchor="middle" fontSize="10" fill="#0E7A5A" fontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif">
+            Procurement
+          </text>
+        </g>
+      ) : null}
 
       {/* the greyed-out sustainability node, set apart */}
       <g>

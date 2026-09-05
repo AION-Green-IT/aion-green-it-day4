@@ -17,11 +17,13 @@ a professional would actually hand over.
 |---|---|---|---|
 | `/` | Module overview | — | built |
 | `/module-3/level-1` | L1 — Knowledge | Diagnostic Note | **built** |
-| `/module-3/level-2` | L2 — Application | Calculation Note | separated route, not yet authored |
+| `/module-3/level-2` | L2 — Application | Calculation Note | **built** |
 | `/module-3/level-3` | L3 — Management decision | Decision Memo | separated route, not yet authored |
 
 The three levels are deliberately separate routes so each can be built and
-navigated independently. Only Level 1 carries task content at this stage.
+navigated independently. Levels 1 and 2 carry full task content; Level 3 is a
+separated route awaiting its own prompt. Level 2 reads Level 1's saved
+Diagnostic Note and refuses to run without it.
 
 ## Level 1 — Knowledge (built)
 
@@ -38,6 +40,28 @@ navigated independently. Only Level 1 carries task content at this stage.
    - Written reflection (judged): two fields, unlocked once all 10 are sorted.
    - Export: a one-page **Diagnostic Note** (preview modal → Save as PDF),
      persisted to this browser and available to Level 2.
+
+## Level 2 — Application (built)
+
+`Level 2 — Application: Where Should Solenne Move First?`
+
+- **Prerequisite gate** — reads the Level 1 Diagnostic Note from storage; with
+  none, it blocks with a banner and a link back.
+- **Story continuation** — same motif with the Procurement lever pulsing, plus a
+  collapsible read-only copy of the learner's own Diagnostic Note. Opening it
+  unlocks two otherwise-locked sliders.
+- **5 material cards**, each tagged with the task part it feeds ("Used in: …").
+- **Task 2 — Calculation Note**
+  - Readiness Scorecard: 5 sliders (1–5) with 1/3/5 anchor tooltips and a live
+    5-axis radar; Procurement & Governance stay locked until the note is reviewed.
+  - Consequence Simulator: 3 accordion panels (A toggle / B tier slider / C
+    device slider) with transparent inline formulas. Panel C hides a
+    "CO₂-per-euro" risk flag that only appears past 250 units.
+  - Live comparison table against a fixed €120,000 budget ceiling.
+  - Judged 2-field reflection, unlocked once all panels are opened and every
+    slider is set.
+  - Export: a one-page **Calculation Note** (radar + comparison + answers),
+    persisted for Level 3.
 
 ## Run it
 

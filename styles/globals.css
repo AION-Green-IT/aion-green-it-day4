@@ -68,6 +68,22 @@
   transform: none;
 }
 
+/* Faint pulse for the recurring Procurement node in the Level 2 motif. */
+@keyframes motifPulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+.motif-pulse {
+  animation: motifPulse 2.4s ease-in-out infinite;
+}
+
 @keyframes revealIn {
   from {
     opacity: 0;

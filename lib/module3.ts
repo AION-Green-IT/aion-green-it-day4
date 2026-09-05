@@ -61,7 +61,7 @@ export const LEVELS: Level[] = [
     cardBlurb:
       "Choose between options whose consequences you measured yourself — with the numbers in front of you.",
     deliverable: "Calculation Note",
-    available: false,
+    available: true,
   },
   {
     n: 3,
