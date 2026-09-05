@@ -8,10 +8,13 @@
 export function NetworkMotif({
   className,
   pulseProcurement = false,
+  boardDecision = false,
 }: {
   className?: string;
   /** Level 2: add a faintly pulsing Procurement node to hint the recurring lever. */
   pulseProcurement?: boolean;
+  /** Level 3: the network is wired; one dashed "Board Decision" node pulses, waiting. */
+  boardDecision?: boolean;
 }) {
   const nodes = [
     { id: "systems", x: 96, y: 60, label: "Systems" },
@@ -48,16 +51,17 @@ export function NetworkMotif({
         ))}
       </g>
 
-      {/* the faded, dashed bridge to sustainability — barely there */}
+      {/* the bridge to sustainability — faded in L1/L2, solid once the memo lands */}
       <line
         x1={nearest.x}
         y1={nearest.y}
         x2={sustain.x}
         y2={sustain.y}
-        stroke="#B7BEC6"
+        stroke={boardDecision ? "#0E7A5A" : "#B7BEC6"}
         strokeWidth="1.4"
-        strokeDasharray="3 5"
+        strokeDasharray={boardDecision ? undefined : "3 5"}
         strokeLinecap="round"
+        opacity={boardDecision ? 0.55 : 1}
       />
 
       {/* live nodes */}
@@ -96,13 +100,20 @@ export function NetworkMotif({
         </g>
       ) : null}
 
-      {/* the greyed-out sustainability node, set apart */}
+      {/* sustainability node — greyed and apart in L1/L2, connected once the memo lands */}
       <g>
-        <circle cx={sustain.x} cy={sustain.y} r="11" fill="#EEF1F3" stroke="#B7BEC6" strokeWidth="1.6" />
+        <circle
+          cx={sustain.x}
+          cy={sustain.y}
+          r="11"
+          fill={boardDecision ? "#FFFFFF" : "#EEF1F3"}
+          stroke={boardDecision ? "#0E7A5A" : "#B7BEC6"}
+          strokeWidth="1.6"
+        />
         <path
           d="M304 172c-4 0-6.6 2-6.6 5.4 0 .5 0 .9.2 1.3.8-2.2 2.5-3.6 5.1-4.2-2 1.2-3.3 2.6-3.7 4.6 3.4.5 5-1.7 5-5.1V172Z"
           fill="none"
-          stroke="#9AA1AA"
+          stroke={boardDecision ? "#0E7A5A" : "#9AA1AA"}
           strokeWidth="1.2"
           strokeLinejoin="round"
         />
@@ -111,12 +122,27 @@ export function NetworkMotif({
           y={sustain.y + 26}
           textAnchor="middle"
           fontSize="10"
-          fill="#9AA1AA"
+          fill={boardDecision ? "#5E6670" : "#9AA1AA"}
           fontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
         >
           Sustainability
         </text>
       </g>
+
+      {/* Level 3: the dashed, pulsing "Board Decision" node — waiting to be completed */}
+      {boardDecision ? (
+        <g>
+          <line x1={byId["erp"].x} y1={byId["erp"].y} x2={150} y2={168} stroke="#0E7A5A" strokeWidth="1.4" strokeDasharray="4 3" opacity="0.6" />
+          <line x1={byId["cloud"].x} y1={byId["cloud"].y} x2={150} y2={168} stroke="#0E7A5A" strokeWidth="1.4" strokeDasharray="4 3" opacity="0.6" />
+          <g className="motif-pulse" style={{ transformOrigin: "150px 168px" }}>
+            <circle cx={150} cy={168} r="13" fill="#FFFFFF" stroke="#0E7A5A" strokeWidth="1.8" strokeDasharray="4 3" />
+            <path d="M144 168h12M150 162v12" stroke="#0E7A5A" strokeWidth="1.4" strokeLinecap="round" />
+          </g>
+          <text x={150} y={194} textAnchor="middle" fontSize="10" fill="#0E7A5A" fontWeight={600} fontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif">
+            Board Decision
+          </text>
+        </g>
+      ) : null}
     </svg>
   );
 }

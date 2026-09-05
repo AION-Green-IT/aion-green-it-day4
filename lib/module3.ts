@@ -73,7 +73,7 @@ export const LEVELS: Level[] = [
     cardBlurb:
       "Decide with resources that are deliberately insufficient, and state out loud what you give up.",
     deliverable: "Decision Memo",
-    available: false,
+    available: true,
   },
 ];
 

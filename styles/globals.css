@@ -84,6 +84,42 @@
   animation: motifPulse 2.4s ease-in-out infinite;
 }
 
+/* Level 3 material-card diagram animations, played on card open. */
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.anim-draw {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawLine 0.85s ease forwards;
+}
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.anim-scale-in {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: scaleIn 0.6s ease forwards;
+}
+@keyframes dashSpin {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+.anim-dash-loop {
+  stroke-dasharray: 6 6;
+  animation: dashSpin 4s linear infinite;
+}
+
 @keyframes revealIn {
   from {
     opacity: 0;

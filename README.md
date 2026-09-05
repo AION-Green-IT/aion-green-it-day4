@@ -18,12 +18,12 @@ a professional would actually hand over.
 | `/` | Module overview | — | built |
 | `/module-3/level-1` | L1 — Knowledge | Diagnostic Note | **built** |
 | `/module-3/level-2` | L2 — Application | Calculation Note | **built** |
-| `/module-3/level-3` | L3 — Management decision | Decision Memo | separated route, not yet authored |
+| `/module-3/level-3` | L3 — Management decision | Decision Memo + Portfolio | **built** |
 
 The three levels are deliberately separate routes so each can be built and
-navigated independently. Levels 1 and 2 carry full task content; Level 3 is a
-separated route awaiting its own prompt. Level 2 reads Level 1's saved
-Diagnostic Note and refuses to run without it.
+navigated independently. All three carry full task content and chain forward:
+Level 2 reads Level 1's Diagnostic Note, and Level 3 reads both and refuses to
+run without them.
 
 ## Level 1 — Knowledge (built)
 
@@ -62,6 +62,30 @@ Diagnostic Note and refuses to run without it.
     slider is set.
   - Export: a one-page **Calculation Note** (radar + comparison + answers),
     persisted for Level 3.
+
+## Level 3 — Management Decision (built)
+
+`Level 3 — Management Decision: What Do You Tell the Board?`
+
+- **Prerequisite gate** — needs BOTH the Level 1 Diagnostic Note and the Level 2
+  Calculation Note; a missing one is named in the banner.
+- **Story continuation** — the motif is now fully wired with a dashed, pulsing
+  "Board Decision" node; below it, both prior notes are shown read-only.
+- **5 material cards**, each colour-tagged to one memo component and holding an
+  animated SVG (target timeline, RACI org-chart, stage-gate, supplier cycle,
+  accountability) that plays on open.
+- **Task 3 — Decision Memo (split-screen builder)**
+  - Left = builder, right = the memo assembling live in reading order, opening by
+    quoting the learner's own Level 1 gaps and Level 2 priority.
+  - Budget allocator against the €120,000 ceiling; the bar and remaining balance
+    turn red and block submit when over budget.
+  - Five colour-coded component fields (Target / Governance / Investment /
+    Supplier / Accountability) with validation ("name a role, not a department").
+  - Sequencing widget: drag/tap 9 actions into Short / Medium / Structural; the
+    order feeds the memo's roadmap silently.
+  - Mandatory "measure you postponed" closing field.
+  - **Submit** → a combined three-note **Portfolio** PDF (Diagnostic +
+    Calculation + Decision Memo) under one header.
 
 ## Run it
 
