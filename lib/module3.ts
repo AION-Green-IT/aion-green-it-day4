@@ -290,15 +290,15 @@ export const TASK1 = {
     fieldA: {
       key: "l1:gaps",
       label: "Name the three biggest strategic gaps you found.",
-      placeholder:
-        "e.g. 'Gap 1 relates to [bucket] because...'  Name three, and say which bucket each came from.",
+      hint: "Name exactly three, and say which bucket each one came from.",
+      placeholder: "Gap 1 relates to [bucket] because...",
     },
     fieldB: {
       key: "l1:opsVsStrategic",
       label:
         "Which of these findings is a single operational weakness, and which is a strategic deficit? Explain the difference for at least two of your findings.",
-      placeholder:
-        "Take at least two findings. For each, say whether it is a one-off operational weakness or a structural strategic deficit — and why the two are not the same.",
+      hint: "Take at least two findings. For each, say whether it's a one-off operational weakness or a structural strategic deficit — and why the two aren't the same.",
+      placeholder: "[Finding] is an operational weakness / a strategic deficit because...",
     },
   },
   export: {

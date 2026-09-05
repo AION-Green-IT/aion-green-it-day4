@@ -11,7 +11,8 @@ export function ClosingField() {
   return (
     <div className="card p-5" style={{ borderTopWidth: 3, borderTopColor: "#B23B3B" }}>
       <label className="block">
-        <span className="mb-1.5 block text-body font-semibold text-ink">{TASK3.closing.label}</span>
+        <span className="block text-body font-semibold text-ink">{TASK3.closing.label}</span>
+        <span className="mb-1.5 mt-0.5 block text-caption text-ash">{TASK3.closing.hint}</span>
         <textarea
           value={hydrated ? value : ""}
           onChange={(e) => setNote(TASK3.closing.key, e.target.value)}

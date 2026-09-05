@@ -64,8 +64,19 @@ function FieldCard({ component, complete, children }: { component: ComponentKey;
   );
 }
 
-function Label({ children }: { children: React.ReactNode }) {
-  return <span className="mb-1 block text-caption font-semibold text-ink">{children}</span>;
+/**
+ * `hint`, when given, is the "how to answer" instruction — shown as a small
+ * caption right under the label so it stays visible the whole time the
+ * learner is typing, instead of living in the placeholder where it
+ * disappears the moment they start.
+ */
+function Label({ children, hint }: { children: React.ReactNode; hint?: string }) {
+  return (
+    <span className="mb-1 block">
+      <span className="block text-caption font-semibold text-ink">{children}</span>
+      {hint ? <span className="mt-0.5 block text-caption font-normal text-ash">{hint}</span> : null}
+    </span>
+  );
 }
 
 // --- Target Picture ---------------------------------------------------------
@@ -93,7 +104,7 @@ function TargetField() {
           </select>
         </label>
       </div>
-      <label className="mt-3 block"><Label>{F.rationaleLabel}</Label>
+      <label className="mt-3 block"><Label hint={F.rationaleHint}>{F.rationaleLabel}</Label>
         <textarea value={rationale} onChange={(e) => setRationale(e.target.value)} rows={2} className={clsx(inputCls, "resize-y")} placeholder={F.rationalePlaceholder} />
       </label>
     </FieldCard>
@@ -122,7 +133,7 @@ function GovernanceField() {
             {REVIEW_CADENCE.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
         </label>
-        <label className="block"><Label>{F.escalationLabel}</Label>
+        <label className="block"><Label hint={F.escalationHint}>{F.escalationLabel}</Label>
           <input value={escalation} onChange={(e) => setEscalation(e.target.value)} className={inputCls} placeholder={F.escalationPlaceholder} />
         </label>
       </div>
@@ -149,7 +160,7 @@ function InvestmentField() {
           </button>
         ))}
       </div>
-      <label className="mt-3 block"><Label>{F.rationaleLabel}</Label>
+      <label className="mt-3 block"><Label hint={F.rationaleHint}>{F.rationaleLabel}</Label>
         <textarea value={rationale} onChange={(e) => setRationale(e.target.value)} rows={2} className={clsx(inputCls, "resize-y")} placeholder={F.rationalePlaceholder} />
       </label>
     </FieldCard>
@@ -174,7 +185,7 @@ function SupplierField() {
           </button>
         ))}
       </div>
-      <label className="mt-3 block"><Label>{F.rationaleLabel}</Label>
+      <label className="mt-3 block"><Label hint={F.rationaleHint}>{F.rationaleLabel}</Label>
         <textarea value={rationale} onChange={(e) => setRationale(e.target.value)} rows={2} className={clsx(inputCls, "resize-y")} placeholder={F.rationalePlaceholder} />
       </label>
     </FieldCard>
@@ -190,7 +201,7 @@ function AccountabilityField() {
   const complete = !!role && !invalid;
   return (
     <FieldCard component="accountability" complete={complete}>
-      <label className="block"><Label>{F.roleLabel}</Label>
+      <label className="block"><Label hint={F.roleHint}>{F.roleLabel}</Label>
         <input value={role} onChange={(e) => setRole(e.target.value)} className={clsx(inputCls, invalid && "border-danger")} placeholder={F.rolePlaceholder} />
         {invalid ? <span className="mt-1 block text-caption text-danger">{F.invalidMessage}</span> : null}
       </label>

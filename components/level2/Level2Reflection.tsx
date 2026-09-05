@@ -26,12 +26,14 @@ export function Level2Reflection() {
       <Field
         noteKey={TASK2.reflection.fieldA.key}
         label={TASK2.reflection.fieldA.label}
+        hint={TASK2.reflection.fieldA.hint}
         placeholder={TASK2.reflection.fieldA.placeholder}
         rows={4}
       />
       <Field
         noteKey={TASK2.reflection.fieldB.key}
         label={TASK2.reflection.fieldB.label}
+        hint={TASK2.reflection.fieldB.hint}
         placeholder={TASK2.reflection.fieldB.placeholder}
         rows={4}
       />
@@ -39,12 +41,30 @@ export function Level2Reflection() {
   );
 }
 
-function Field({ noteKey, label, placeholder, rows }: { noteKey: string; label: string; placeholder: string; rows: number }) {
+/**
+ * `hint` is the "how to answer" instruction — kept visible as a caption under
+ * the label the whole time, instead of living in the placeholder where it
+ * disappears the moment the learner starts typing.
+ */
+function Field({
+  noteKey,
+  label,
+  hint,
+  placeholder,
+  rows,
+}: {
+  noteKey: string;
+  label: string;
+  hint: string;
+  placeholder: string;
+  rows: number;
+}) {
   const value = useProgress((s) => s.notes[noteKey] ?? "");
   const setNote = useProgress((s) => s.setNote);
   return (
     <label className="block">
-      <span className="mb-1.5 block text-body font-semibold text-ink">{label}</span>
+      <span className="block text-body font-semibold text-ink">{label}</span>
+      <span className="mb-1.5 mt-0.5 block text-caption text-ash">{hint}</span>
       <textarea
         value={value}
         onChange={(e) => setNote(noteKey, e.target.value)}

@@ -272,15 +272,15 @@ export const TASK2 = {
     fieldA: {
       key: "l2:choice",
       label: "Which option do you prioritize first, and why?",
-      placeholder:
-        "Reference at least one number from the comparison table (Budget, CO2, Time, or Risk).",
+      hint: "Reference at least one number from the comparison table above (Budget, CO2, Time, or Risk).",
+      placeholder: "Option [A/B/C] first, because...",
     },
     fieldB: {
       key: "l2:notFix",
       label:
         "What does this choice NOT fix? Name the conflict or gap you are consciously leaving unresolved for now.",
-      placeholder:
-        "Name one real conflict or gap your choice leaves open — both sides of it, not a restatement of the choice.",
+      hint: "Name one real conflict or gap your choice leaves open — both sides of it, not a restatement of the choice.",
+      placeholder: "This does not fix...",
     },
   },
   export: {

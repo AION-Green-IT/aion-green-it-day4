@@ -29,6 +29,12 @@ saved yet.
 **Export filenames** follow `<n>.<name>-day4-materi<n>` — e.g.
 `1.muchson-day4-materi1`, `2.muchson-day4-materi2`, `3.muchson-day4-materi3`.
 
+**Free-text fields:** the "how to answer" instruction is a small caption under
+the field's title (always visible), never only inside the placeholder — a
+placeholder disappears the moment a learner starts typing, so it can't double
+as a format to copy. Placeholders are kept short (a sentence starter like
+`Gap 1 relates to [bucket] because...`).
+
 ## Level 1 — Knowledge (built)
 
 `Level 1 — Knowledge: Reading Solenne's IT Strategy`

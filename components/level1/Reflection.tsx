@@ -33,12 +33,14 @@ export function Reflection() {
       <Field
         noteKey={TASK1.reflection.fieldA.key}
         label={TASK1.reflection.fieldA.label}
+        hint={TASK1.reflection.fieldA.hint}
         placeholder={TASK1.reflection.fieldA.placeholder}
         rows={4}
       />
       <Field
         noteKey={TASK1.reflection.fieldB.key}
         label={TASK1.reflection.fieldB.label}
+        hint={TASK1.reflection.fieldB.hint}
         placeholder={TASK1.reflection.fieldB.placeholder}
         rows={5}
       />
@@ -46,14 +48,21 @@ export function Reflection() {
   );
 }
 
+/**
+ * `hint` is the "how to answer" instruction — it stays visible as a caption
+ * under the label the whole time the learner is typing, instead of living in
+ * the placeholder where it disappears the moment they start.
+ */
 function Field({
   noteKey,
   label,
+  hint,
   placeholder,
   rows,
 }: {
   noteKey: string;
   label: string;
+  hint: string;
   placeholder: string;
   rows: number;
 }) {
@@ -62,7 +71,8 @@ function Field({
 
   return (
     <label className="block">
-      <span className="mb-1.5 block text-body font-semibold text-ink">{label}</span>
+      <span className="block text-body font-semibold text-ink">{label}</span>
+      <span className="mb-1.5 mt-0.5 block text-caption text-ash">{hint}</span>
       <textarea
         value={value}
         onChange={(e) => setNote(noteKey, e.target.value)}
