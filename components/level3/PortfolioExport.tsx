@@ -25,7 +25,7 @@ export function PortfolioExport() {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const download = () => printAsFile(exportFilename(name, 3, TASK3.export.taskLabel));
+  const download = () => printAsFile(exportFilename(name, 3));
 
   return (
     <div className="card p-5">

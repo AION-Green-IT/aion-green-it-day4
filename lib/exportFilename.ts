@@ -7,12 +7,16 @@
  * The number is just the block's own place in the day (1, 2, 3) — never a
  * separate field to fill in.
  */
-const slugify = (v: string) => v.trim().replace(/[\\/:*?"<>|]+/g, "-");
+const slugify = (v: string) =>
+  v.trim().toLowerCase().replace(/\s+/g, "-").replace(/[\\/:*?"<>|]+/g, "-");
 
-export function exportFilename(name: string, taskNumber: number, taskLabel: string): string {
+/**
+ * Filename pattern requested by the class: `<number>.<name>-day4-materi<number>`
+ * e.g. `1.muchson-day4-materi1`. The number is the level's place in the day.
+ */
+export function exportFilename(name: string, taskNumber: number): string {
   const who = slugify(name) || "learner";
-  const label = slugify(taskLabel) || `task-${taskNumber}`;
-  return `${taskNumber}-${who}-${label}`;
+  return `${taskNumber}.${who}-day4-materi${taskNumber}`;
 }
 
 /** Sets document.title to the export filename, prints, then restores it once the print dialog closes. */

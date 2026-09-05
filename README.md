@@ -20,10 +20,14 @@ a professional would actually hand over.
 | `/module-3/level-2` | L2 — Application | Calculation Note | **built** |
 | `/module-3/level-3` | L3 — Management decision | Decision Memo + Portfolio | **built** |
 
-The three levels are deliberately separate routes so each can be built and
-navigated independently. All three carry full task content and chain forward:
-Level 2 reads Level 1's Diagnostic Note, and Level 3 reads both and refuses to
-run without them.
+The three levels are deliberately separate routes, and each is **independently
+accessible** — no level is locked behind another, so learners can jump around.
+They still chain by content: Level 2 pulls in Level 1's Diagnostic Note and
+Level 3 pulls in both, showing an empty-state reference when a prior note isn't
+saved yet.
+
+**Export filenames** follow `<n>.<name>-day4-materi<n>` — e.g.
+`1.muchson-day4-materi1`, `2.muchson-day4-materi2`, `3.muchson-day4-materi3`.
 
 ## Level 1 — Knowledge (built)
 
@@ -36,7 +40,10 @@ run without them.
 3. **Task 1 — Diagnostic Note**
    - Sorting board: 10 draggable signals → 5 buckets (Target Picture,
      Governance, Investment Logic, Procurement, Supplier Control), with a live
-     horizontal bar chart. No right/wrong. Drag **or** tap-to-select + tap-to-place.
+     horizontal bar chart. Drag **or** tap-to-select + tap-to-place. Nothing is
+     marked on drop; once all ten are sorted, an optional **"Check placements"**
+     shows each card's most common bucket + why (a re-checkable guidance loop),
+     never a hard score.
    - Written reflection (judged): two fields, unlocked once all 10 are sorted.
    - Export: a one-page **Diagnostic Note** (preview modal → Save as PDF),
      persisted to this browser and available to Level 2.
@@ -45,8 +52,6 @@ run without them.
 
 `Level 2 — Application: Where Should Solenne Move First?`
 
-- **Prerequisite gate** — reads the Level 1 Diagnostic Note from storage; with
-  none, it blocks with a banner and a link back.
 - **Story continuation** — same motif with the Procurement lever pulsing, plus a
   collapsible read-only copy of the learner's own Diagnostic Note. Opening it
   unlocks two otherwise-locked sliders.
@@ -67,8 +72,6 @@ run without them.
 
 `Level 3 — Management Decision: What Do You Tell the Board?`
 
-- **Prerequisite gate** — needs BOTH the Level 1 Diagnostic Note and the Level 2
-  Calculation Note; a missing one is named in the banner.
 - **Story continuation** — the motif is now fully wired with a dashed, pulsing
   "Board Decision" node; below it, both prior notes are shown read-only.
 - **5 material cards**, each colour-tagged to one memo component and holding an

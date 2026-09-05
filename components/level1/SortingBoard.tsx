@@ -6,7 +6,12 @@ import { BUCKETS, SIGNALS, TASK1, type Signal } from "@/lib/module3";
 import { useProgress } from "@/lib/store";
 import { bucketCounts, sortKey, useLevel1 } from "@/lib/level1";
 import { BucketBarChart } from "@/components/visuals/BucketBarChart";
-import { Icon, DragHandle } from "@/components/icons/LineIcons";
+import { Icon, DragHandle, Check } from "@/components/icons/LineIcons";
+
+const BUCKET_LABEL = Object.fromEntries(BUCKETS.map((b) => [b.id, b.label])) as Record<string, string>;
+
+/** What the optional placement check tells the learner about one card. */
+type ReviewInfo = { matched: boolean; suggestedLabel: string; why: string };
 
 /** Fixed, non-sequential inbox order — "shuffled" but deterministic, so
  *  server and client render identically (no hydration flicker). */
@@ -17,14 +22,16 @@ const INBOX = "inbox";
 
 export function SortingBoard() {
   const choose = useProgress((s) => s.choose);
-  const { placements, sortedCount, hydrated } = useLevel1();
+  const { placements, sortedCount, allSorted, hydrated } = useLevel1();
 
   // Which card is being dragged / tap-selected, and which zone is hovered.
   const [dragId, setDragId] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [overZone, setOverZone] = useState<string | null>(null);
+  const [reviewing, setReviewing] = useState(false);
 
   const counts = bucketCounts(placements, BUCKETS.map((b) => b.id));
+  const matchedCount = SIGNALS.filter((s) => placements[s.id] === s.suggested).length;
 
   const place = (signalId: string, zone: string) => {
     choose(sortKey(signalId), zone === INBOX ? "" : zone);
@@ -143,6 +150,11 @@ export function SortingBoard() {
                       selectedId={selectedId}
                       onDragId={setDragId}
                       onTap={onCardTap}
+                      review={
+                        reviewing
+                          ? { matched: s.suggested === b.id, suggestedLabel: BUCKET_LABEL[s.suggested], why: s.why }
+                          : undefined
+                      }
                     />
                   ))}
                   {placed.length === 0 ? (
@@ -155,6 +167,37 @@ export function SortingBoard() {
             );
           })}
         </div>
+      </div>
+
+      {/* Optional placement check — guidance, not a score. Re-runnable so the
+          sort → check → re-sort loop keeps teaching. */}
+      <div className="card p-4">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="text-h3 text-ink">{TASK1.board.review.title}</p>
+          {allSorted ? (
+            <button
+              type="button"
+              onClick={() => setReviewing((v) => !v)}
+              className={clsx(
+                "rounded-xl px-3 py-2 text-caption font-semibold transition-colors duration-150",
+                reviewing ? "border border-line text-ink hover:border-ash" : "bg-accent text-paper hover:bg-accentHi",
+              )}
+            >
+              {reviewing ? TASK1.board.review.hideLabel : TASK1.board.review.checkLabel}
+            </button>
+          ) : (
+            <span className="text-caption text-ash">{TASK1.board.review.lockedHint}</span>
+          )}
+        </div>
+        {reviewing ? (
+          <div className="reveal-in mt-2 space-y-1">
+            <p className="text-body text-ink">
+              <span className="font-semibold tabular-nums text-accent">{matchedCount}</span> of {SIGNALS.length} sit in
+              their most common bucket. Look at the rest — a hint is on each card.
+            </p>
+            <p className="text-caption text-ash">{TASK1.board.review.note}</p>
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -221,6 +264,7 @@ function SignalCard({
   selectedId,
   onDragId,
   onTap,
+  review,
 }: {
   signal: Signal;
   compact?: boolean;
@@ -228,6 +272,7 @@ function SignalCard({
   selectedId: string | null;
   onDragId: (id: string | null) => void;
   onTap: (id: string) => void;
+  review?: ReviewInfo;
 }) {
   const dragging = dragId === signal.id;
   const selected = selectedId === signal.id;
@@ -258,7 +303,13 @@ function SignalCard({
         className={clsx(
           "group flex cursor-grab items-start gap-2 rounded-xl border bg-paper p-3 shadow-sm transition-all duration-150 active:cursor-grabbing",
           dragging && "is-dragging shadow-lift",
-          selected ? "border-accent ring-2 ring-accent/30" : "border-line hover:border-ash",
+          selected
+            ? "border-accent ring-2 ring-accent/30"
+            : review
+              ? review.matched
+                ? "border-accent/50"
+                : "border-warn/60"
+              : "border-line hover:border-ash",
         )}
       >
         <span className="mt-0.5 text-ash/70 group-hover:text-ash">
@@ -271,6 +322,22 @@ function SignalCard({
           {signal.text}
         </p>
       </div>
+
+      {review ? (
+        review.matched ? (
+          <p className="reveal-in mt-1 flex items-center gap-1 pl-2 text-micro font-semibold text-accent">
+            <Check className="h-3.5 w-3.5" /> {TASK1.board.review.fitLabel}
+          </p>
+        ) : (
+          <div className="reveal-in mt-1 rounded-lg border-l-2 border-warn bg-warn/10 px-2 py-1.5 pl-2">
+            <p className="text-micro font-semibold text-warn">
+              Most place this in {review.suggestedLabel}
+            </p>
+            <p className="mt-0.5 text-micro text-ash">{review.why}</p>
+          </div>
+        )
+      ) : null}
+
       {selected ? (
         <p className="mt-1 pl-2 text-micro font-semibold uppercase tracking-wide text-accent">
           {TASK1.board.tapHint}

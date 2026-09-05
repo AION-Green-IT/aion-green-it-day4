@@ -173,19 +173,27 @@ export const BUCKETS: Bucket[] = [
   { id: "supplier", label: "Supplier Control", icon: "supplier" },
 ];
 
-export type Signal = { id: string; n: number; text: string };
+export type Signal = {
+  id: string;
+  n: number;
+  text: string;
+  /** The bucket this signal most commonly belongs in (for the optional check). */
+  suggested: string;
+  /** Why it sits there — shown as guidance, never as a hard "wrong". */
+  why: string;
+};
 
 export const SIGNALS: Signal[] = [
-  { id: "s1", n: 1, text: "IT projects are evaluated primarily on innovation, speed, and budget." },
-  { id: "s2", n: 2, text: "The IT strategy document contains no explicit sustainability targets." },
-  { id: "s3", n: 3, text: "Procurement decisions are made mainly on price, availability, and standardization." },
-  { id: "s4", n: 4, text: "Management is now demanding visible, measurable contributions to sustainability." },
-  { id: "s5", n: 5, text: "IT leadership considers sustainability important but has never made it a formal priority." },
-  { id: "s6", n: 6, text: "Suppliers are not evaluated against any sustainability criteria." },
-  { id: "s7", n: 7, text: "Next year's IT roadmap (cloud migration, new ERP) carries no sustainability KPI." },
-  { id: "s8", n: 8, text: "Devices are refreshed on a warranty-expiry schedule, not an energy-efficiency one." },
-  { id: "s9", n: 9, text: "No one in IT or procurement is formally accountable for sustainability outcomes." },
-  { id: "s10", n: 10, text: "Investment approvals never ask about lifecycle cost or end-of-life disposal." },
+  { id: "s1", n: 1, text: "IT projects are evaluated primarily on innovation, speed, and budget.", suggested: "investment", why: "The criteria that decide what gets funded are investment logic." },
+  { id: "s2", n: 2, text: "The IT strategy document contains no explicit sustainability targets.", suggested: "target", why: "A missing sustainability target is a gap in the target picture." },
+  { id: "s3", n: 3, text: "Procurement decisions are made mainly on price, availability, and standardization.", suggested: "procurement", why: "This is the procurement decision rule itself." },
+  { id: "s4", n: 4, text: "Management is now demanding visible, measurable contributions to sustainability.", suggested: "target", why: "A demand for a measurable contribution is pressure to set a target — though it can also read as a governance signal." },
+  { id: "s5", n: 5, text: "IT leadership considers sustainability important but has never made it a formal priority.", suggested: "governance", why: "Whether something is a formal, owned priority is governance." },
+  { id: "s6", n: 6, text: "Suppliers are not evaluated against any sustainability criteria.", suggested: "supplier", why: "Evaluating suppliers against criteria is supplier control." },
+  { id: "s7", n: 7, text: "Next year's IT roadmap (cloud migration, new ERP) carries no sustainability KPI.", suggested: "target", why: "A roadmap with no sustainability KPI is a missing measurable target." },
+  { id: "s8", n: 8, text: "Devices are refreshed on a warranty-expiry schedule, not an energy-efficiency one.", suggested: "investment", why: "The refresh/replacement decision rule is investment logic — though it also touches procurement." },
+  { id: "s9", n: 9, text: "No one in IT or procurement is formally accountable for sustainability outcomes.", suggested: "governance", why: "Named accountability for outcomes is governance." },
+  { id: "s10", n: 10, text: "Investment approvals never ask about lifecycle cost or end-of-life disposal.", suggested: "investment", why: "What an approval gate must check is investment logic." },
 ];
 
 export const TASK1 = {
@@ -195,10 +203,18 @@ export const TASK1 = {
   board: {
     inboxTitle: "Inbox — signals to sort",
     inboxHelp:
-      "Drag a signal into the bucket it belongs in — or tap a signal, then tap a bucket. No answer is marked right or wrong. Re-sort any card at any time.",
+      "Drag a signal into the bucket it belongs in — or tap a signal, then tap a bucket. Nothing is marked as you drop. Re-sort any card at any time; once all ten are placed you can check your placements below.",
     chartTitle: "Signals per bucket",
     chartEmpty: "The chart fills as you sort.",
     tapHint: "Selected — now tap a bucket",
+    review: {
+      title: "Check your placements",
+      lockedHint: "Sort all 10 signals first, then check.",
+      checkLabel: "Check placements",
+      hideLabel: "Hide guidance",
+      fitLabel: "Common fit",
+      note: "These are the most common placements, not the only defensible ones. Move a card and check again.",
+    },
   },
   reflection: {
     lockedLabel: "Sort all 10 signals to unlock the written reflection.",

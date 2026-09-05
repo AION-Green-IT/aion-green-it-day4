@@ -36,7 +36,7 @@ export function DiagnosticExport() {
   }, [open]);
 
   const download = () => {
-    printAsFile(exportFilename(name, 1, TASK1.export.taskLabel));
+    printAsFile(exportFilename(name, 1));
   };
 
   return (

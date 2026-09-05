@@ -31,7 +31,7 @@ export function CalculationExport() {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const download = () => printAsFile(exportFilename(name, 2, TASK2.export.taskLabel));
+  const download = () => printAsFile(exportFilename(name, 2));
 
   return (
     <div className="card p-5">

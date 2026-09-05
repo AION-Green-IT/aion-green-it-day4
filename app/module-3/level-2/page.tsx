@@ -3,7 +3,6 @@ import { LEVELS } from "@/lib/module3";
 import { LEVEL2_TITLE, MATERIAL2, SCORECARD, TASK2 } from "@/lib/level2";
 import { LeafMark } from "@/components/chrome/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Level2Gate } from "@/components/level2/Level2Gate";
 import { StoryContinuation } from "@/components/level2/StoryContinuation";
 import { Level2Material } from "@/components/level2/Level2Material";
 import { ReadinessScorecard } from "@/components/level2/ReadinessScorecard";
@@ -31,7 +30,7 @@ export default function Level2Page() {
           <h1 className="text-h1 text-ink">{LEVEL2_TITLE}</h1>
         </div>
 
-        <Level2Gate>
+        <>
           <StoryContinuation />
 
           <hr className="border-line" />
@@ -70,7 +69,7 @@ export default function Level2Page() {
               <CalculationExport />
             </div>
           </section>
-        </Level2Gate>
+        </>
       </div>
 
       <CalculationNotePrint />

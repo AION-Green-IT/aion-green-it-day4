@@ -3,7 +3,6 @@ import { LEVELS } from "@/lib/module3";
 import { LEVEL3_TITLE, MATERIAL3, TASK3 } from "@/lib/level3";
 import { LeafMark } from "@/components/chrome/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Level3Gate } from "@/components/level3/Level3Gate";
 import { StoryContinuation3 } from "@/components/level3/StoryContinuation3";
 import { Level3Material } from "@/components/level3/Level3Material";
 import { Level3Builder } from "@/components/level3/Level3Builder";
@@ -27,7 +26,7 @@ export default function Level3Page() {
           <h1 className="text-h1 text-ink">{LEVEL3_TITLE}</h1>
         </div>
 
-        <Level3Gate>
+        <>
           <StoryContinuation3 />
 
           <hr className="border-line" />
@@ -43,7 +42,7 @@ export default function Level3Page() {
             <SectionHeading kicker={TASK3.kicker} title={TASK3.heading} intro={TASK3.subtext} className="mb-8" />
             <Level3Builder />
           </section>
-        </Level3Gate>
+        </>
       </div>
 
       <PortfolioPrint />
