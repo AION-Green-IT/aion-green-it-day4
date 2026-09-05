@@ -67,6 +67,13 @@ as a format to copy. Placeholders are kept short (a sentence starter like
    | B5 Trade-offs | "Trade-offs between cost, availability, standardisation, sustainability ambition and time pressure" |
    | B6 Procurement as a management lever | "Why sustainable procurement is a management lever for long-term impact" |
 
+2b. **Reference videos** — two small "▶ watch" chips under the page title
+   (`lib/module3.ts` → `LEVEL1_VIDEOS`, rendered by
+   `components/ui/VideoReferences.tsx`). Clicking one opens an inline modal
+   with the video embedded (YouTube, `-nocookie` domain) and autoplaying —
+   nothing navigates away from the site. Add more videos to any level by
+   passing a `VideoReference[]` to `<VideoReferences videos={...} />`.
+
 3. **Task 1 — Diagnostic Note**
    - Sorting board: 10 draggable signals → 5 buckets (Target Picture,
      Governance, Investment Logic, Procurement, Supplier Control), with a live

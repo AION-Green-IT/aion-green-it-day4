@@ -12,6 +12,22 @@ export const CASE = {
   moduleTitle: "Green IT in IT Strategy & Procurement",
 } as const;
 
+export type VideoReference = { id: string; youtubeId: string; title: string };
+
+/** Reference videos shown as small chips under the Level 1 title — click to watch inline. */
+export const LEVEL1_VIDEOS: VideoReference[] = [
+  {
+    id: "v1",
+    youtubeId: "fxL1LsqGeyw",
+    title: "Calculating greenhouse gas emissions according to the GHG Protocol",
+  },
+  {
+    id: "v2",
+    youtubeId: "d7isFGcr8Q0",
+    title: "Developing Sustainable Procurement Strategies — A Guide to Responsible Sourcing",
+  },
+];
+
 /** Icon keys resolved by components/icons/LineIcons.tsx. */
 export type IconKey =
   | "compass"

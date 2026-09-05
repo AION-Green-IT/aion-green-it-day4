@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { LEVELS, MATERIAL, TASK1 } from "@/lib/module3";
+import { LEVELS, LEVEL1_VIDEOS, MATERIAL, TASK1 } from "@/lib/module3";
 import { LeafMark } from "@/components/chrome/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { VideoReferences } from "@/components/ui/VideoReferences";
 import { StoryIntro } from "@/components/level1/StoryIntro";
 import { MaterialCards, MaterialProgress } from "@/components/level1/MaterialCards";
 import { TaskGate } from "@/components/level1/TaskGate";
@@ -31,6 +32,9 @@ export default function Level1Page() {
             <Level1Reset />
           </div>
           <h1 className="text-h1 text-ink">{LEVEL.title}</h1>
+          <div className="mt-4">
+            <VideoReferences videos={LEVEL1_VIDEOS} />
+          </div>
         </div>
 
         <StoryIntro />

@@ -220,6 +220,14 @@ export function Close({ className }: P) {
   );
 }
 
+export function Play({ className }: P) {
+  return (
+    <svg {...base} className={className ?? "h-4 w-4"} fill="currentColor" stroke="none">
+      <path d="M8 5.5v13l11-6.5-11-6.5Z" />
+    </svg>
+  );
+}
+
 export function Plus({ className }: P) {
   return (
     <svg {...base} className={className ?? "h-4 w-4"}>
