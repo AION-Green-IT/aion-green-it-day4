@@ -7,6 +7,7 @@ import { useProgress } from "@/lib/store";
 import { bucketCounts, sortKey, useLevel1 } from "@/lib/level1";
 import { BucketBarChart } from "@/components/visuals/BucketBarChart";
 import { Icon, DragHandle, Check } from "@/components/icons/LineIcons";
+import { BucketInfo } from "./BucketInfo";
 
 const BUCKET_LABEL = Object.fromEntries(BUCKETS.map((b) => [b.id, b.label])) as Record<string, string>;
 
@@ -139,6 +140,7 @@ export function SortingBoard() {
                   <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-ink px-1.5 text-caption font-semibold tabular-nums text-paper">
                     {counts[b.id]}
                   </span>
+                  <BucketInfo bucket={b} />
                 </div>
                 <ul className="space-y-2">
                   {placed.map((s) => (

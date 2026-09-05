@@ -40,7 +40,10 @@ saved yet.
 3. **Task 1 — Diagnostic Note**
    - Sorting board: 10 draggable signals → 5 buckets (Target Picture,
      Governance, Investment Logic, Procurement, Supplier Control), with a live
-     horizontal bar chart. Drag **or** tap-to-select + tap-to-place. Nothing is
+     horizontal bar chart. Drag **or** tap-to-select + tap-to-place. Each bucket
+     header has a **"?" info popover** — a one-line definition, a small SVG
+     diagram of the concept, and example signals — so a learner can decide
+     where a card belongs without guessing from the label alone. Nothing is
      marked on drop; once all ten are sorted, an optional **"Check placements"**
      shows each card's most common bucket + why (a re-checkable guidance loop),
      never a hard score.

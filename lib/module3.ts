@@ -159,18 +159,84 @@ export const MATERIAL: {
 };
 
 /** Section 3 — Task 1: Diagnostic Note. */
+export type BucketId = "target" | "governance" | "investment" | "procurement" | "supplier";
+
 export type Bucket = {
-  id: string;
+  id: BucketId;
   label: string;
   icon: IconKey;
+  /** One-line explanation of what belongs in this bucket, shown behind a "?". */
+  blurb: string;
+  /** Short example items — what a signal in this bucket typically looks like. */
+  examples: string[];
 };
 
 export const BUCKETS: Bucket[] = [
-  { id: "target", label: "Target Picture", icon: "target" },
-  { id: "governance", label: "Governance", icon: "gavel" },
-  { id: "investment", label: "Investment Logic", icon: "coins" },
-  { id: "procurement", label: "Procurement", icon: "cart" },
-  { id: "supplier", label: "Supplier Control", icon: "supplier" },
+  {
+    id: "target",
+    label: "Target Picture",
+    icon: "target",
+    blurb:
+      "A stated, measurable destination for IT sustainability — not a slogan like \"greener IT\". A baseline, a target year, and a % reduction, the same shape used for real emissions targets.",
+    examples: [
+      "A baseline number (emissions, energy use)",
+      "A target year (e.g. 2030)",
+      "A stated % reduction or efficiency goal",
+      "A sustainability KPI on the roadmap — or its absence",
+    ],
+  },
+  {
+    id: "governance",
+    label: "Governance",
+    icon: "gavel",
+    blurb:
+      "Who decides, who is consulted, who is only informed — and whether anyone is formally accountable for the outcome, not just personally interested in it.",
+    examples: [
+      "A named accountable owner (or the lack of one)",
+      "Formal priority vs. a personal opinion",
+      "Reporting lines and review cadence",
+      "Escalation rules when targets slip",
+    ],
+  },
+  {
+    id: "investment",
+    label: "Investment Logic",
+    icon: "coins",
+    blurb:
+      "The rules that decide which IT investments get approved — what a business case must show before money is released.",
+    examples: [
+      "What investment approvals ask for (or don't)",
+      "Whether lifecycle cost or end-of-life is a required question",
+      "The criteria projects are actually judged on (speed, budget, innovation…)",
+      "Whether sustainability sits inside the approval gate or outside it",
+    ],
+  },
+  {
+    id: "procurement",
+    label: "Procurement",
+    icon: "cart",
+    blurb:
+      "The purchasing decision rule itself — what suppliers and products are actually chosen on, beyond price and performance.",
+    examples: [
+      "The criteria used to pick a supplier or product",
+      "Whether lifecycle, repairability, or origin are ever asked about",
+      "Standardization and availability as decision drivers",
+      "What triggers a refresh or replacement",
+    ],
+  },
+  {
+    id: "supplier",
+    label: "Supplier Control",
+    icon: "supplier",
+    blurb:
+      "Whether suppliers are evaluated and re-checked against sustainability criteria — once, or on a repeating cycle.",
+    examples: [
+      "Supplier sustainability scoring or screening",
+      "Re-certification at contract renewal",
+      "One-time vetting vs. an ongoing review cycle",
+      "Supply chain and origin checks",
+    ],
+  },
 ];
 
 export type Signal = {
@@ -178,7 +244,7 @@ export type Signal = {
   n: number;
   text: string;
   /** The bucket this signal most commonly belongs in (for the optional check). */
-  suggested: string;
+  suggested: BucketId;
   /** Why it sits there — shown as guidance, never as a hard "wrong". */
   why: string;
 };
