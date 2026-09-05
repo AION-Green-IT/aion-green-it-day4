@@ -41,8 +41,32 @@ as a format to copy. Placeholders are kept short (a sentence starter like
 
 1. **Story intro** — the case, beside a network motif whose "sustainability"
    node is greyed out and only loosely tethered (fade-in on scroll).
-2. **Study material** — 7 expand cards with line icons; 7 progress dots gate the
-   task, which stays locked until all cards are opened.
+2. **Study material** — 11 expand cards, grouped into the module's two stated
+   halves (**Part A — Sustainable IT strategy**, **Part B — Sustainable
+   procurement**), one card per bullet of the class's Knowledge Input
+   checklist (see table below). Each card is a full knowledge unit, not a
+   one-liner: a dense framework/definition, a concrete real-world example
+   with a number where one is verifiably known, a custom SVG diagram (drawn
+   in, not decorative), a one-line career/academic-readiness note, and 1–2
+   external references (real standards/frameworks — ISO 20400, GHG Protocol,
+   COBIT, TCO Certified, EPEAT, RBA, EU GPP/CSRD, WEEE, SBTi) opening in a
+   new tab. 11 progress dots gate the task, which stays locked until all
+   cards are opened.
+
+   | Card | Knowledge Input bullet covered |
+   |---|---|
+   | A1 What makes an IT strategy sustainable | "What characterises a sustainable IT strategy" + "sustainability as part of the IT target vision, architecture, investment logic and governance" |
+   | A2 Single action vs. strategic embedding | "Difference between individual measures and strategic anchoring" |
+   | A3 Corporate strategy ↔ sustainability goals ↔ IT strategy | "Relationship between corporate strategy, sustainability goals and IT strategy" |
+   | A4 Typical fields of action | "Typical fields of action: infrastructure, procurement, life cycle, operations, software, governance, metrics" |
+   | A5 Not just an environmental topic | "Why a sustainable IT strategy is not only an environmental topic, but also a risk, cost and competitiveness topic" |
+   | B1 Introduction to sustainable procurement | "Introduction to sustainable procurement in IT" |
+   | B2 Procurement criteria beyond price/performance | "Considering procurement not only in terms of price and performance, but also life cycle, repairability, energy efficiency, origin, supply chain and disposability" |
+   | B3 Supplier requirements & minimum standards | "Importance of supplier requirements, selection criteria and minimum standards" |
+   | B4 Tenders, specifications & guidelines | "Role of tenders, specification documents and procurement guidelines" |
+   | B5 Trade-offs | "Trade-offs between cost, availability, standardisation, sustainability ambition and time pressure" |
+   | B6 Procurement as a management lever | "Why sustainable procurement is a management lever for long-term impact" |
+
 3. **Task 1 — Diagnostic Note**
    - Sorting board: 10 draggable signals → 5 buckets (Target Picture,
      Governance, Investment Logic, Procurement, Supplier Control), with a live

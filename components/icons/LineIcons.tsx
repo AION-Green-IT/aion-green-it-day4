@@ -119,6 +119,27 @@ function Coins({ className }: P) {
   );
 }
 
+function Layers({ className }: P) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M12 3.5 21 8l-9 4.5L3 8l9-4.5Z" />
+      <path d="m3 12 9 4.5 9-4.5" />
+      <path d="m3 16 9 4.5 9-4.5" />
+    </svg>
+  );
+}
+
+function Scale({ className }: P) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M12 3.5v17M7 5.5h10" />
+      <path d="M7 5.5 3.5 12.5a3.5 3.5 0 0 0 7 0L7 5.5Z" />
+      <path d="M17 5.5 13.5 12.5a3.5 3.5 0 0 0 7 0L17 5.5Z" />
+      <path d="M9 20.5h6" />
+    </svg>
+  );
+}
+
 function Supplier({ className }: P) {
   return (
     <svg {...base} className={className}>
@@ -142,6 +163,8 @@ const REGISTRY: Record<IconKey, (p: P) => JSX.Element> = {
   gavel: Gavel,
   coins: Coins,
   supplier: Supplier,
+  layers: Layers,
+  scale: Scale,
 };
 
 export function Icon({ name, className }: { name: IconKey; className?: string }) {
