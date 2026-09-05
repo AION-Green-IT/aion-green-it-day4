@@ -1,0 +1,776 @@
+{
+  "meta": {
+    "module": "Module 2 · Day 3",
+    "logoLabel": "AION Green IT",
+    "title": "E-Waste & Carbon Accounting in IT",
+    "subtitle": "Executive edition — a self-study companion. Everything you need to work through the day is on this page; no mentor required.",
+    "levelNote": "a management topic: governance, procurement, compliance, reporting and investment decisions, not just operational sustainability.",
+    "howToUse": "Lectures happen away from the screen. Use this page during the independent work blocks — read the short brief, run the mechanic once, look at the result. One loop takes minutes, not tens of minutes.",
+    "footerLine": "AION Green IT · Module 2 · Day 3 · English (executive edition)"
+  },
+  "opening": {
+    "kicker": "Why this, and why now",
+    "scene": "Monday, 09:14. Nexora Digital Services just found out its biggest client's procurement lead is attaching two new conditions to this quarter's re-tender: defensible IT carbon figures, and proof that retired devices are handled responsibly. Nexora's Head of IT has neither — and Friday is the deadline. She calls you: not to fix it yet, just to tell her, honestly, where it's actually broken.",
+    "turn": "No slogan fixes this, and you haven't been hired to write one. Before Nexora trusts you with the real proposal, they want to see you find the actual problem first. Work the blocks below — the last one decides whether you get the room.",
+    "stakes": [
+      {
+        "icon": "contract",
+        "label": "The deal",
+        "text": "Nexora's tenders and key accounts now ask for IT carbon and disposal proof. “We don't track that” can lose the contract."
+      },
+      {
+        "icon": "shield",
+        "label": "The law",
+        "text": "Reporting duties and data-protection rules follow every device that leaves Nexora's building, documented or not."
+      },
+      {
+        "icon": "coins",
+        "label": "The budget",
+        "text": "Replacing devices early and losing their resale value quietly burns money that lifecycle thinking would keep."
+      },
+      {
+        "icon": "eye",
+        "label": "The reputation",
+        "text": "A visible but hollow “green” move is exposed the moment anyone audits it — worse than doing nothing."
+      }
+    ]
+  },
+  "roadmap": {
+    "kicker": "Before you open a single card",
+    "title": "Two kinds of literacy this brief is testing",
+    "intro": "Nexora didn't just ask for numbers — it asked for a defensible answer. That takes two things most people only have one of: knowing what these terms actually mean, and knowing how to turn them into a decision leadership will act on. The cards below build the first. Task and the final brief demand the second.",
+    "facts": [
+      {
+        "stat": "62M tonnes",
+        "label": "e-waste, worldwide, 2022",
+        "detail": "Only 22.3% of it was formally collected and recycled — and the pile is growing five times faster than recycling capacity.",
+        "source": "UN Global E-waste Monitor, 2024"
+      },
+      {
+        "stat": "~80%",
+        "label": "of a laptop's lifetime carbon",
+        "detail": "is already spent before it's unboxed — in manufacturing, not daily use. “Turn off your monitor” barely moves the number that matters.",
+        "source": "lifecycle studies behind GHG Protocol Scope 3 guidance"
+      }
+    ],
+    "factsNote": "Neither number is about Nexora specifically. Both are why a client asks at all — and why “we recycle” or “we're efficient” won't be enough of an answer on their own.",
+    "visual": "literacyRoadmap",
+    "visualCaption": "Two lanes feed one skill: the mechanics tell you what a signal means, the mindset tells you what to do about it. Both have to hold before Task and the final brief will.",
+    "turn": "The cards below build the vocabulary. Task turns it into a diagnosis. The final brief turns the diagnosis into a decision. Skip a stage and the next one won't hold."
+  },
+  "namePrompt": {
+    "title": "Before you start",
+    "caption": "This goes on everything you export today — Task, Data and the final brief — so you only type it once.",
+    "nameLabel": "Your name",
+    "namePlaceholder": "e.g. Budi Santoso"
+  },
+  "progress": {
+    "byMessages": [
+      { "upTo": 0, "text": "Nothing opened yet. Start with the basics, then run the first mechanic." },
+      { "upTo": 40, "text": "Warming up. Each mechanic below reveals its reasoning the moment you engage it." },
+      { "upTo": 99, "text": "Most of the way through. Keep going — the case and the Nexora brief are where it comes together." },
+      { "upTo": 100, "text": "All four blocks done. You've run every mechanic at least once — now argue it in the room." }
+    ]
+  },
+  "sections": [
+    {
+      "id": "basics",
+      "nav": "Basics",
+      "kicker": "Companion to Work Block #1",
+      "title": "The basics, in one pass",
+      "intro": "Two intertwined control topics across the IT lifecycle: e-waste and carbon accounting. Each card shows a diagram and how its parts connect; open it for the analogy, a concrete example, and what you actually use it for.",
+      "doneRule": "Open every concept card.",
+      "concepts": [
+        {
+          "id": "b-what",
+          "title": "What e-waste is — and why it's a management issue",
+          "visual": "stakes",
+          "relation": "One retired device is tied to four management concerns at once — so it belongs on the management desk, not only the facilities one.",
+          "points": [
+            "Retired IT hardware: laptops, phones, servers, network gear and their parts.",
+            "It ties up capital, carries compliance and data-security duties, and customers now ask about it."
+          ],
+          "analogy": "It's not scrap in a cupboard — it's an unmanaged asset, like a company car nobody logged the sale of.",
+          "example": "A 3-year-old laptop still holds resale value, reuse potential and — until it's wiped and tracked — live company data and a legal duty.",
+          "useFor": "Use this framing to lift e-waste off the facilities budget line and onto the management agenda: it's capital, compliance and reputation, not just disposal."
+        },
+        {
+          "id": "b-causes",
+          "title": "Where e-waste actually comes from",
+          "visual": "causes",
+          "relation": "The four causes all act upstream — at buying and replacing — long before anything reaches the bin downstream.",
+          "points": [
+            "Short, fixed replacement cycles; no repair path; little reuse.",
+            "Unstructured returns — devices leave with no clear record."
+          ],
+          "analogy": "The bin fills at the checkout, not at the recycling plant: like buying bottled water by the pallet, the waste is decided when you purchase.",
+          "example": "A fixed 3-year swap retires 650 laptops that mostly still work — that waste was scheduled at procurement, years before disposal.",
+          "useFor": "Use it to aim at the real lever: change replacement rules and procurement criteria, not just the disposal contract at the end."
+        },
+        {
+          "id": "b-ladder",
+          "title": "The disposal ladder — five different things",
+          "visual": "ladder",
+          "relation": "Each rung down keeps less of the effort already spent building the device — so the rungs are ranked, not interchangeable.",
+          "points": [
+            "Disposal → recycling → remanufacturing → refurbishment → reuse, with prevention at the top.",
+            "Reuse and refurbishment keep the embodied (“grey”) energy; recycling loses most of it."
+          ],
+          "analogy": "Like clothes: mend and re-wear beats donating, which beats shredding for rags. Every step down loses more of the original work.",
+          "example": "Refurbishing a laptop keeps the energy already spent making it; recycling recovers some metal but throws that build-energy away.",
+          "useFor": "Use the ladder to challenge “we recycle” as a finish line — reuse and refurbishment sit higher and cut more carbon per device."
+        },
+        {
+          "id": "b-carbon",
+          "title": "Carbon accounting — how Scopes 1, 2 and 3 connect",
+          "visual": "scopes",
+          "relation": "The scopes don't overlap — they nest around your company boundary and add up to one total. One firm's Scope 1 is another's Scope 3: your cloud provider's electricity (their Scope 2) lands in your Scope 3.",
+          "points": [
+            "Scope 1: direct, on-site emissions you own. Scope 2: the energy you buy.",
+            "Scope 3: everything up- and downstream — making devices, cloud, disposal. For IT, usually the biggest slice."
+          ],
+          "analogy": "Think of a household: Scope 1 is your car's exhaust, Scope 2 is your electricity bill, Scope 3 is everything you buy — the factory, the shipping, the landfill.",
+          "example": "For one laptop: Scope 1 ≈ nothing on-site; Scope 2 = the power it draws at your desk; Scope 3 = the Asian factory, the freight, the cloud it talks to, and its disposal.",
+          "useFor": "Use scopes to aim: for IT most emissions hide in Scope 3, so counting only 1 and 2 makes you look clean while missing most of the footprint."
+        },
+        {
+          "id": "b-hotspots",
+          "title": "IT's CO₂ hotspots across the lifecycle",
+          "visual": "lifecycle",
+          "relation": "Carbon is spread around the whole loop, not at one point — and recycling feeds materials back to the start, closing it.",
+          "points": [
+            "Hotspots: production, transport, daily operation, cloud, user devices, data centres, disposal.",
+            "Each depends on databases, emission factors and where you draw the system boundary."
+          ],
+          "analogy": "Like a flight's footprint: it's not just fuel in the air (use), but building the plane (manufacture) and running the airport (data centre, cloud).",
+          "example": "A phone can emit most of its lifetime CO₂ before you unbox it — in manufacturing — while a server emits most of its own during years of operation.",
+          "useFor": "Use the map to match the fix to the device: extend life where manufacturing dominates, improve efficiency where operation dominates."
+        },
+        {
+          "id": "b-steer",
+          "title": "Measuring is not the point — steering is",
+          "visual": "steer",
+          "relation": "Data only matters once it feeds a decision; a number with no decision attached is a report on a shelf.",
+          "points": [
+            "Carbon accounting exists to enable decisions, not to produce a report for its own sake.",
+            "There's a real trade-off between accuracy, practicality, data availability and management need."
+          ],
+          "analogy": "A bathroom scale doesn't make you fitter — the decisions you take because of the number do.",
+          "example": "A rough but timely baseline (“cloud is ~40% of our IT emissions”) lets you act this quarter; a perfect figure that lands next year decides nothing.",
+          "useFor": "Use carbon data to decide, and accept the trade-off between accuracy, effort and speed — a usable estimate beats a perfect number that's too late."
+        }
+      ],
+      "map": {
+        "title": "The one picture to remember",
+        "caption": "E-waste and carbon accounting are the same story seen twice: both run the length of the device lifecycle, and both roll up into how the company is governed and reported. Steer them together, not apart.",
+        "visual": "connections"
+      }
+    },
+    {
+      "id": "task1",
+      "nav": "Task",
+      "kicker": "Work Block #1 · Task",
+      "title": "Where is Nexora weakest? — Nexora Digital Services",
+      "intro": "You're not on the payroll yet. Nexora's Head of IT gave you one afternoon, a pile of scattered notes on how the company buys, uses and retires its devices — and one ask: tell her where it actually hurts, not where it looks alarming. Sort every signal into Source, Cycle or Control. Some are the real weak spot; the rest are noise that sounds worse than it is. Name the one area you'd bring into the room — that call is what gets you hired for the work ahead.",
+      "doneRule": "Sort every signal, then name the weak spot.",
+      "resetLabel": "Diagnose again",
+      "resetNote": "Clears your sorting and your diagnosis — the rest of the page stays as it is.",
+      "areasRelation": "The three areas are one device's life in order: what you buy (Source) → how it runs (Cycle) → whether you can see it and close it out (Control). A risk in any one is a management gap in that phase.",
+      "areasVisual": "areasLifecycle",
+      "categories": [
+        {
+          "code": "source",
+          "name": "Source",
+          "blurb": "Procurement & replacement — the decisions that create devices in the first place.",
+          "hex": "#6E8DC1"
+        },
+        {
+          "code": "cycle",
+          "name": "Cycle",
+          "blurb": "Use & operations — what happens while the device is in service.",
+          "hex": "#B389D6"
+        },
+        {
+          "code": "control",
+          "name": "Control",
+          "blurb": "Data, transparency & disposal — whether you can see and steer it.",
+          "hex": "#F1B24A"
+        }
+      ],
+      "clues": [
+        {
+          "id": "c1",
+          "text": "Each country office buys its own devices locally instead of going through one central contract.",
+          "answer": "source",
+          "weak": false,
+          "explain": "Sounds risky, but every region already applies the same repairability- and energy-rating checklist before purchase — buying locally hasn't lowered device quality or shortened lifespans.",
+          "why": "Decentralised isn't automatically unmanaged — check the criteria before you judge the shape of the process.",
+          "modelCarbon": "high",
+          "modelReadiness": "low"
+        },
+        {
+          "id": "c2",
+          "text": "No one at Nexora can currently produce a single number for how many devices are active across its country offices.",
+          "answer": "control",
+          "weak": true,
+          "explain": "This is the real gap: with no shared device inventory, there is no baseline to report from anywhere in the lifecycle.",
+          "why": "You can't defend a carbon figure for hardware you can't even count.",
+          "modelCarbon": "low",
+          "modelReadiness": "high"
+        },
+        {
+          "id": "c3",
+          "text": "Staff keep the same laptop through the full replacement cycle even as they move between office and home.",
+          "answer": "cycle",
+          "weak": false,
+          "explain": "Reads like neglect, but Nexora already runs an annual health-check that reassigns or upgrades machines that no longer fit the workload — the review just isn't visible from outside IT.",
+          "why": "An in-service device that still fits the job isn't a red flag by itself.",
+          "modelCarbon": "low",
+          "modelReadiness": "either"
+        },
+        {
+          "id": "c4",
+          "text": "Retired laptops from three regional offices sit in local storage rooms with no shared record of quantity, condition or next destination.",
+          "answer": "control",
+          "weak": true,
+          "explain": "Missing chain-of-custody across regions is exactly the transparency gap a customer audit will not accept.",
+          "why": "“Somewhere in a cupboard, we think” does not survive a tender review.",
+          "modelCarbon": "low",
+          "modelReadiness": "high"
+        },
+        {
+          "id": "c5",
+          "text": "Nexora's device replacement cycle varies by country, from two to four years.",
+          "answer": "source",
+          "weak": false,
+          "explain": "A varying cycle looks inconsistent, but each region sets its own cycle against local usage data — a deliberate, reviewed choice, not drift.",
+          "why": "A different number isn't automatically a worse number — ask what it's based on.",
+          "modelCarbon": "high",
+          "modelReadiness": "low"
+        },
+        {
+          "id": "c6",
+          "text": "Energy-saving settings differ from laptop to laptop across the fleet.",
+          "answer": "cycle",
+          "weak": false,
+          "explain": "Inconsistent settings sound like waste, but the difference traces to role-based power profiles IT already manages — not to nobody looking at operational energy.",
+          "why": "Variation is only a problem if no one chose it on purpose.",
+          "modelCarbon": "low",
+          "modelReadiness": "either"
+        },
+        {
+          "id": "c7",
+          "text": "IT has never been asked to report a CO₂ figure for hardware, so no one currently owns producing one.",
+          "answer": "control",
+          "weak": true,
+          "explain": "No owner, no baseline, no agreed system boundary — the transparency the client is pushing for doesn't exist yet.",
+          "why": "A rough baseline you can defend beats a precise one you don't have.",
+          "modelCarbon": "low",
+          "modelReadiness": "high"
+        }
+      ],
+      "diagnosis": {
+        "prompt": "You've read every signal. If you had to name ONE weak spot to bring into the room, which is it?",
+        "correct": "control",
+        "correctVerdict": "Control. The device count, its whereabouts and its carbon figure all draw a blank — that's the gap the customer pressure is really about. Source and Cycle had signals that sounded concerning, but neither showed an actual break in practice.",
+        "incorrectVerdict": "Look again at Control: nobody can currently produce a device inventory, a disposal trail, or a CO₂ figure. Source and Cycle had signals that sounded concerning, but each one turned out to be a working practice, not a gap."
+      },
+      "quadrant": {
+        "title": "Priority matrix",
+        "intro": "The sort alone doesn't say which signal matters most. Two questions, answered separately: how much carbon it moves, and whether Nexora can act on it today. Nothing here is scored either — plot every signal, then compare against the model.",
+        "carbonQuestion": "If this were fixed, how much carbon impact would it have?",
+        "readinessQuestion": "Can we act on this today — does the data already exist?",
+        "low": "Low",
+        "high": "High",
+        "xLabel": "Carbon impact if fixed",
+        "yLabel": "Readiness to act today",
+        "zoneLabels": {
+          "topLeft": "Foundation — fix first",
+          "topRight": "Quick win — chase this",
+          "bottomLeft": "Noise — deprioritise",
+          "bottomRight": "Big bet — blocked for now"
+        },
+        "compareLabel": "Compare with the model",
+        "compareLocked": "Answer both questions for all seven signals to unlock this.",
+        "yourTitle": "Your matrix",
+        "modelTitle": "The model matrix",
+        "modelInsight": "Source carries more carbon, and the matrix says so plainly. But Control sits in the quadrant that blocks it: no figure built on Source data can be defended to an outside auditor while Control stays broken. Fix the top-left quadrant first — it's what makes the bottom-right one reachable.",
+        "eitherNote": "Cycle signals (3 and 6) accept either reading on readiness — the model plots them on the midline."
+      },
+      "exportNote": {
+        "heading": "Nexora Digital Services",
+        "subheading": "Diagnostic Note — Where We Are Weakest",
+        "watermark": "AION Green IT · Module 2 · Day 3 · Work Block #1",
+        "controlsTitle": "Export your Diagnostic Note",
+        "controlsIntro": "Everything above, laid out as one page you can save or hand in — your signal sort, your priority matrix, and the area you named.",
+        "nameLabel": "Submitted by",
+        "namePlaceholder": "Your name",
+        "exportLabel": "Export Diagnostic Note (PDF)",
+        "taskLabel": "Diagnostic Note",
+        "signalSortTitle": "1 · Signal sort",
+        "matrixTitle": "2 · Priority matrix",
+        "verdictTitle": "3 · The area brought into the room",
+        "notCompleted": "Not yet completed."
+      }
+    },
+    {
+      "id": "data",
+      "nav": "Data",
+      "kicker": "Work Block #2 · Source Playground",
+      "title": "The lever you can actually move",
+      "intro": "Control is still broken, so you can't pull this number for Nexora's whole fleet — only for Singapore, the one office with a complete asset register. Drag the slider and feel the trade-off Source actually forces: a shorter replacement cycle doesn't cut anything, it just moves the carbon and the resale value in opposite directions. Find a cycle you can defend, then name what this number still can't tell you.",
+      "doneRule": "Recommend a cycle and name the gap it doesn't close.",
+      "config": {
+        "office": "Singapore hub",
+        "unitsInOffice": 40,
+        "pcfPerUnitKg": 350,
+        "pcfSource": "vendor's published Product Carbon Footprint datasheet",
+        "cycleMin": 2,
+        "cycleMax": 8,
+        "cycleStep": 0.5,
+        "cycleDefault": 3,
+        "residualAtMinCyclePct": 35,
+        "residualAtMaxCyclePct": 5,
+        "diminishingReturnsThresholdPct": 25,
+        "modelBPcfPerUnitKg": 410,
+        "disposalLandfillKg": 12,
+        "disposalRecyclerKg": 3,
+        "partAQuizCycleYears": 2,
+        "officeB": {
+          "name": "Berlin hub",
+          "modelAUnits": 25,
+          "modelBUnits": 15,
+          "cycleYears": 3
+        },
+        "fleetOfficeCount": 12
+      },
+      "partA": {
+        "kicker": "Part A — Do the math by hand",
+        "title": "Do the math by hand",
+        "intro": "Before the slider does this for you, do it yourself — same formula, same case. Five questions, one calculator, no shortcuts.",
+        "tableTitle": "IT Carbon Factors",
+        "formulaLabel": "Annual embodied carbon = (units ÷ cycle years) × factor",
+        "table": [
+          { "ref": "A", "item": "Laptop Model A (standard)", "category": "Manufacturing", "configKey": "pcfPerUnitKg", "unit": "kg CO₂e / unit" },
+          { "ref": "B", "item": "Laptop Model B (premium)", "category": "Manufacturing", "configKey": "modelBPcfPerUnitKg", "unit": "kg CO₂e / unit" },
+          { "ref": "L", "item": "Disposal — landfill (undocumented)", "category": "Disposal", "configKey": "disposalLandfillKg", "unit": "kg CO₂e / unit" },
+          { "ref": "R", "item": "Disposal — certified recycler", "category": "Disposal", "configKey": "disposalRecyclerKg", "unit": "kg CO₂e / unit" }
+        ],
+        "calculator": {
+          "title": "Auto-calculator",
+          "help": "Pick factors by their code (A, B, L, R) instead of retyping numbers — the value comes straight from the table above.",
+          "carbonModeLabel": "Embodied carbon",
+          "disposalModeLabel": "Disposal impact",
+          "unitsLabel": "Units",
+          "cycleLabel": "Cycle years",
+          "factorLabel": "Factor",
+          "factor1Label": "Factor 1",
+          "factor2Label": "Factor 2",
+          "addModelLabel": "+ Add a second model (mixed fleet)",
+          "removeModelLabel": "Remove second model",
+          "totalLabel": "Total",
+          "tonnesToggleLabel": "Show in tonnes CO₂e (÷ 1000)",
+          "carbonFormula": "(Units ÷ Cycle years) × Factor",
+          "disposalFormula": "Units × (Factor 1 − Factor 2)"
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "kind": "number",
+            "prompt": "{officeA} has {unitsA} Model A laptops on a {cycleA}-year cycle. What is the annual embodied carbon, in kg CO₂e?",
+            "unit": "kg CO₂e",
+            "placeholder": "kg CO₂e"
+          },
+          {
+            "id": "q2",
+            "kind": "number",
+            "prompt": "Express your answer to Q1 in tonnes CO₂e (1 tonne = 1000 kg).",
+            "unit": "t CO₂e",
+            "placeholder": "t CO₂e"
+          },
+          {
+            "id": "q3",
+            "kind": "number",
+            "prompt": "{officeB} has {unitsBA} Model A laptops and {unitsBB} Model B laptops, both on a {cycleB}-year cycle. What is the total annual embodied carbon for {officeB}, in kg CO₂e?",
+            "unit": "kg CO₂e",
+            "placeholder": "kg CO₂e"
+          },
+          {
+            "id": "q4",
+            "kind": "number",
+            "prompt": "If {officeB}'s {totalB} retired laptops went to landfill instead of a certified recycler, how much extra CO₂e would that add, in kg?",
+            "unit": "kg CO₂e",
+            "placeholder": "kg CO₂e"
+          },
+          {
+            "id": "q5",
+            "kind": "text",
+            "prompt": "Nexora has {fleetOffices} country offices in total. Using the numbers above, what is Nexora's total annual embodied carbon across the whole fleet?",
+            "placeholder": "A number, or an explanation of why you can't give one."
+          }
+        ],
+        "correctFeedback": "That checks out.",
+        "retryFeedback": "Check your numbers and try again.",
+        "q5FlagHint": "Check your assumptions — do you have unit counts and models for all {fleetOffices} offices? See your Work Block #1 diagnosis.",
+        "q5NoTaskYet": "Complete Work Block #1 first — its diagnosis is what this question is testing."
+      },
+      "partBKicker": "Part B — Explore",
+      "marginalLabel": "Next half-year of extension would save",
+      "diminishingLabel": "Diminishing returns from here",
+      "diminishingHelp": "Longer cycles still cut carbon, just less and less — this step saved much less than the first half-year did. That's the maths, not a verdict on which cycle to pick.",
+      "startingPointLabel": "vs your starting point",
+      "lockedLabel": "Apply this cycle to all Nexora offices",
+      "lockedNote": "Locked — requires the device inventory and disposal records from Work Block #1 (Control) to be in place first. No figure built on Source data can be defended fleet-wide while Control stays broken. See your Work Block #1 diagnosis.",
+      "justification": {
+        "cycleLabel": "Cycle you recommend, and why",
+        "cyclePlaceholder": "Recommend ___ years because at that point annual embodied carbon reads ___ kg and residual value recovered reads ___% — cite the numbers on the meters, not just a direction.",
+        "gapLabel": "What this number does not tell us",
+        "gapPlaceholder": "This covers Singapore only — one office, one PCF figure. It says nothing about the rest of the fleet because ___ (the same gap Work Block #1 named)."
+      },
+      "exportLabel": "Export report",
+      "taskLabel": "Source Playground",
+      "exportNote": {
+        "watermark": "AION Green IT · Module 2 · Day 3 · Work Block #2",
+        "heading": "Nexora Digital Services",
+        "subheading": "Source Lever — Replacement Cycle at Singapore",
+        "scopeTitle": "Scope & assumptions",
+        "calcTitle": "Calculation",
+        "justificationTitle": "Your recommendation",
+        "closingLine": "This figure covers Singapore only and cannot be scaled fleet-wide until Work Block #1's Control gap is closed."
+      },
+      "turn": "Carry the cycle you named into the final brief — D3 needs this number, not a qualitative claim."
+    },
+    {
+      "id": "task2",
+      "nav": "Task 2",
+      "kicker": "Work Block #1 · Task 2",
+      "title": "Which step goes first?",
+      "intro": "This year the company will start exactly one main step. Constraints: tight budget, patchy data on old devices and emissions, a board that wants quick visible results, customers expecting traceable sustainability claims, and an IT team with limited capacity. Pick a first priority — you're not being graded, you're rehearsing the trade-off.",
+      "doneRule": "Choose a first priority.",
+      "tradeoffRelation": "Judge the options on two different axes: how visible each is right now, versus how much it actually lets you steer for the long term. They're not the same thing — the fastest-looking move often steers the least.",
+      "tradeoffVisual": "tradeoff",
+      "prompt": "What should be the first main step this year?",
+      "options": [
+        {
+          "id": "t2a",
+          "label": "A — Returns, refurbishment & reuse",
+          "summary": "Stand up a proper return, refurbishment and reuse process for old devices.",
+          "axis": { "visible": 2, "steer": 2 },
+          "consequence": {
+            "headline": "A direct, visible circular win — but it can't answer the CO₂ question yet.",
+            "points": [
+              "Cuts waste immediately and gives a concrete story about responsible device handling.",
+              "Without a carbon baseline you still can't give the customer a traceable CO₂ figure.",
+              "Impact stays hard to prove and report, even while it's real."
+            ]
+          }
+        },
+        {
+          "id": "t2b",
+          "label": "B — Simplified IT carbon accounting",
+          "summary": "Build a simplified IT carbon account: a baseline, pragmatic data sources, and clear ownership.",
+          "axis": { "visible": 2, "steer": 3 },
+          "consequence": {
+            "headline": "Creates transparency and decision-ability — but must be paired with a device process.",
+            "points": [
+              "Answers the reporting and customer-traceability demand head-on, at modest cost.",
+              "Improves management's ability to decide — you can finally steer, not just guess.",
+              "On its own it measures without yet reducing: pair it with a structured old-device process."
+            ]
+          }
+        },
+        {
+          "id": "t2c",
+          "label": "C — Replace devices with efficient models",
+          "summary": "Swap old devices now for newer, more energy-efficient models.",
+          "axis": { "visible": 3, "steer": 1 },
+          "consequence": {
+            "headline": "The fastest visible gesture — and the classic symbolic single step.",
+            "points": [
+              "Looks green quickly, which pleases a board that wants something visible now.",
+              "New devices carry fresh embodied (grey) carbon; replacing early can raise the lifecycle total.",
+              "Scrapping still-usable hardware without a lifecycle review is what the coaching warns against."
+            ]
+          }
+        }
+      ],
+      "coachNote": "The course's own reasoning leans toward B combined with a structured old-device process — transparency first, so every later step can be defended. But a well-argued choice under incomplete data is the real skill here; note what your pick commits you to next, and two risks if the first step turns out wrong."
+    },
+    {
+      "id": "bluegrid",
+      "nav": "Case",
+      "kicker": "Work Block #2 · Flagship case",
+      "title": "BlueGrid Solutions GmbH",
+      "intro": "A growing services firm, 1,100 staff, decentralised procurement across sites. Management wants — for the first time — a credible statement on IT's environmental impact. Read the starting position, then choose the first step you'd prioritise. You'll see it compared against the official recommendation.",
+      "doneRule": "Choose a first step.",
+      "situation": [
+        "No central picture of the old-device inventory or where devices go next.",
+        "No systematic reuse or refurbishment.",
+        "Disposal routes are not documented transparently or completely.",
+        "No IT-related CO₂ baseline.",
+        "Customer sustainability questions keep growing.",
+        "IT is worried about extra workload and complexity.",
+        "Management wants a solution that is both credible and practical."
+      ],
+      "levers": [
+        "Build an IT-related carbon baseline from pragmatic data sources.",
+        "Set up an orderly return, reuse and refurbishment process for old devices.",
+        "Create clear ownership across IT, purchasing, sustainability and external partners.",
+        "Align procurement and replacement logic with lifecycle thinking."
+      ],
+      "prompt": "Which first step would you start with?",
+      "options": [
+        {
+          "id": "bg-recommended",
+          "label": "Simplified carbon baseline + structured old-device process, together",
+          "recommended": true,
+          "verdict": "This is the official recommendation.",
+          "detail": "Building a simplified carbon account alongside a structured old-device process creates transparency and credibility at once, and unites reporting, customer demand and operational improvement.",
+          "reasons": [
+            "Creates transparency and credibility.",
+            "Improves management's ability to make decisions.",
+            "Unites reporting, customer demands and operational improvement.",
+            "Reduces the risk of a symbolic single step with no steering effect."
+          ]
+        },
+        {
+          "id": "bg-refresh",
+          "label": "A big symbolic device refresh, to show customers something now",
+          "recommended": false,
+          "verdict": "Visible, but strategically thin.",
+          "detail": "A refresh is the photo-op trap: outwardly impressive, but with no baseline and no lifecycle review it improves neither steering nor credibility — and adds fresh embodied carbon.",
+          "reasons": [
+            "No baseline means you still can't prove impact.",
+            "Adds embodied carbon while scrapping usable devices.",
+            "Impresses outwardly while changing little inside."
+          ]
+        },
+        {
+          "id": "bg-statement",
+          "label": "Publish a sustainability statement first, tighten the data later",
+          "recommended": false,
+          "verdict": "A credibility risk under audit.",
+          "detail": "Claiming before you can trace invites exactly the audit questions BlueGrid can't yet answer. Transparency has to precede the statement, not follow it.",
+          "reasons": [
+            "Unbacked claims fail under customer or audit scrutiny.",
+            "Erodes the credibility the exercise is meant to build.",
+            "Puts messaging ahead of the ability to steer."
+          ]
+        },
+        {
+          "id": "bg-vendor",
+          "label": "Hand the whole topic to the external disposal vendor and wait",
+          "recommended": false,
+          "verdict": "Outsources the governance, not just the work.",
+          "detail": "A vendor can process devices, but ownership, data flows and the carbon baseline are management responsibilities that can't be delegated away.",
+          "reasons": [
+            "Leaves no internal ownership or governance.",
+            "Still produces no IT carbon baseline.",
+            "Keeps disposal routes opaque rather than transparent."
+          ]
+        }
+      ],
+      "horizonsRelation": "The two first moves — a baseline and a device process — are the foundation every later horizon builds on: short-term you gather data, medium-term you set rules, structurally you bake it into governance. Skip the foundation and the later steps have nothing to stand on.",
+      "horizonsVisual": "horizonsTimeline",
+      "horizons": [
+        {
+          "id": "short",
+          "label": "Short-term",
+          "items": [
+            "Inventory device types, replacement cycles and old-device flows.",
+            "Set a pragmatic IT CO₂ baseline.",
+            "Clarify internal authority and external process partners."
+          ]
+        },
+        {
+          "id": "medium",
+          "label": "Medium-term",
+          "items": [
+            "Introduce reuse and refurbishment rules.",
+            "Adopt lifecycle-oriented procurement criteria.",
+            "Record relevant emission and material data in a standardised way."
+          ]
+        },
+        {
+          "id": "structural",
+          "label": "Structural",
+          "items": [
+            "Embed carbon accounting and lifecycle management in IT governance and reporting.",
+            "Steer regularly through indicators, reviews and management decisions."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nexora",
+      "nav": "Nexora",
+      "kicker": "Work Block #3 · Final brief",
+      "title": "Nexora Digital Services — your management proposal",
+      "intro": "Your read landed. Nexora's leadership doesn't want a slide of findings — they want someone who can turn “we don't know” into a decision architecture they can act on. Effective now, you're not the outside opinion anymore: you're Nexora's IT-governance lead / sustainability consultant, growing internationally, large device volumes, hybrid IT, still no consistent steering model. This is a starter kit, not a form to fill in. Tick a component once you can argue it, and jot your line of reasoning. Everything saves on this device.",
+      "doneRule": "Address at least one component.",
+      "seniorNote": "Senior bar: don't produce a list of single actions — produce a robust decision architecture that ties together reporting, responsibility, lifecycle thinking and the ability to steer.",
+      "architectureRelation": "The seven parts aren't a checklist to tick off — they lock together into one structure: why it matters and what you report, who owns it and how data flows, the lifecycle it has to cover, and how you keep steering under uncertainty.",
+      "architectureVisual": "architecture",
+      "components": [
+        {
+          "id": "n1",
+          "title": "1 · Strategic relevance",
+          "prompt": "Why are e-waste and carbon accounting strategically relevant for this company — not just operationally?",
+          "pillar": "Report"
+        },
+        {
+          "id": "n2",
+          "title": "2 · Three core decisions (12 months)",
+          "prompt": "Which three core decisions must management take in the next twelve months? D1 and D2 are yours to argue. D3 must cite a number — the CO₂ estimate from Block 2 — not a qualitative claim like “signal the 5 biggest levers.”",
+          "pillar": "Steer"
+        },
+        {
+          "id": "n3",
+          "title": "3 · Prioritisation logic",
+          "prompt": "By what decision logic should the steps be prioritised?",
+          "pillar": "Steer"
+        },
+        {
+          "id": "n4",
+          "title": "4 · The main goal conflicts",
+          "prompt": "Where are the central conflicts between credibility, workload, data quality, speed and impact?",
+          "pillar": "Steer"
+        },
+        {
+          "id": "n5",
+          "title": "5 · First-step path",
+          "prompt": "Which first-step path should be prioritised, and why?",
+          "pillar": "Lifecycle"
+        },
+        {
+          "id": "n6",
+          "title": "6 · Responsibility, data flows, review",
+          "prompt": "How should responsibilities, data flows and review structures be set up?",
+          "pillar": "Own"
+        },
+        {
+          "id": "n7",
+          "title": "7 · Decide now, despite gaps",
+          "prompt": "Which decisions must be taken now even though the information is incomplete?",
+          "pillar": "Own"
+        }
+      ],
+      "reflection": {
+        "title": "Reflection — carry these into the room",
+        "questions": [
+          "Where does unnecessary e-waste arise in my organisation out of habit, not need?",
+          "Which decisions are currently taken with no CO₂ transparency?",
+          "Where would a visible step impress outsiders while being too weak inside?",
+          "Which decisions are robust long-term from the seat of a department head, architect or consultant?"
+        ]
+      },
+      "reportBuilder": {
+        "docTitle": "MEMORANDUM",
+        "header": {
+          "title": "Memo header",
+          "toLabel": "To",
+          "toCaption": "Whoever actually has the authority to approve these three decisions — not a general audience.",
+          "toPlaceholder": "e.g. Nexora's CFO and Head of IT",
+          "fromLabel": "From",
+          "fromCaption": "Your title in this case, not your real name.",
+          "fromPlaceholder": "e.g. IT-Governance Lead / Sustainability Consultant",
+          "subjectLabel": "Subject",
+          "subjectCaption": "What does the reader need to know before they even open this?",
+          "subjectPlaceholder": "e.g. Closing Nexora's e-waste and carbon reporting gap — three decisions for the next 12 months"
+        },
+        "clueToggleLabel": "Need a clue?",
+        "reference": {
+          "task1VerdictLabel": "Your Work Block #1 finding:",
+          "task1GapLabel": "Still missing, per Work Block #1:",
+          "block2NumberLabel": "Your Work Block #2 number:",
+          "block2GapLabel": "From your Work Block #2 note:",
+          "task1Placeholder": "Complete Work Block #1 first.",
+          "block2Placeholder": "Complete Work Block #2 first."
+        },
+        "steps": [
+          {
+            "componentId": "n1",
+            "caption": "Argue in terms of revenue, legal exposure, or reputation — not sustainability in the abstract. Why does the board need to care by Friday, not eventually?",
+            "clue": "This matters now because [business consequence], and waiting costs Nexora [specific exposure] by [timeframe]."
+          },
+          {
+            "componentId": "n2",
+            "caption": "Name exactly three. Order them — a list in random order reads as junior. Each one should trace back to something specific you found, not a generic best practice.",
+            "reference": "task1Verdict",
+            "clue": "D1: [decision], because [specific finding]. D2: [decision], because [specific finding]. D3: [decision], because [the number you found]."
+          },
+          {
+            "componentId": "n7",
+            "caption": "Only list what's reversible or reduces risk today. Anything that needs data you don't have yet belongs in a later decision, not this one.",
+            "reference": "task1Gap",
+            "clue": "Even without [the missing data], we can decide [action] now because it's reversible and reduces [specific risk]."
+          },
+          {
+            "componentId": "n5",
+            "caption": "Say what the first 30 days costs you — not just what it produces. A path with no downside hasn't been thought through.",
+            "reference": "block2Number",
+            "clue": "The first 30 days: [action]. It costs [specific cost or effort]. It produces [specific output]."
+          },
+          {
+            "componentId": "n3",
+            "caption": "State the test you used to order your decisions — not just ‘biggest impact first.’ A senior answer can explain why the order isn't obvious.",
+            "clue": "We prioritised by [the test], not by [the obvious alternative], because [reason the obvious choice would have been wrong]."
+          },
+          {
+            "componentId": "n4",
+            "caption": "A real conflict has two sides that are both legitimate. If your next sentence resolves it, it isn't a conflict yet — it's a decision you've already made.",
+            "reference": "block2Gap",
+            "clue": "One side wants [X] because [reason]. The other side wants [Y] because [reason]. Both are reasonable, so the real question is [what tips it]."
+          },
+          {
+            "componentId": "n6",
+            "caption": "Name one accountable person, not a committee. State how often this gets reviewed — ‘ongoing’ is not a cadence.",
+            "clue": "[Named role] owns this. Data flows from [source] to [destination]. It's reviewed every [specific cadence]."
+          }
+        ],
+        "closingLine": "This is what you bring into the room Friday.",
+        "exportLabel": "Export memo (PDF)",
+        "exportWatermark": "AION Green IT · Module 2 · Day 3 · Work Block #3",
+        "taskLabel": "Management Memo"
+      }
+    }
+  ],
+  "glossary": {
+    "title": "Key terms",
+    "hint": "Only the handful of terms this page actually uses.",
+    "terms": [
+      {
+        "term": "E-waste",
+        "def": "Retired electronic equipment — here, IT hardware and its components at end of use."
+      },
+      {
+        "term": "Embodied (grey) energy",
+        "def": "The energy already spent producing a device, before it is ever switched on. Kept by reuse, largely lost by early recycling."
+      },
+      {
+        "term": "Refurbishment",
+        "def": "Restoring a used device to reliable working order for continued use — higher on the ladder than recycling."
+      },
+      {
+        "term": "Remanufacturing",
+        "def": "Rebuilding a device to as-new condition using recovered parts, more intensive than refurbishment."
+      },
+      {
+        "term": "Carbon accounting",
+        "def": "Measuring an organisation's greenhouse-gas emissions so they can be reported and, above all, steered."
+      },
+      {
+        "term": "Scope 1 / 2 / 3",
+        "def": "Direct emissions (1), purchased energy (2), and everything up- and downstream (3) — where most IT emissions sit."
+      },
+      {
+        "term": "Emission factor",
+        "def": "A conversion rate turning an activity (kWh, a device, a shipment) into an estimated CO₂ figure."
+      },
+      {
+        "term": "System boundary",
+        "def": "What is counted and what is left out. Move the boundary and the reported number moves with it."
+      }
+    ]
+  }
+}
