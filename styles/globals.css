@@ -3,19 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --backdrop: rgba(35, 26, 69, 0.55);
+  --backdrop: rgba(22, 25, 29, 0.55);
 }
 
 @layer base {
   html {
-    font-family: "Calibri", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-paper text-ink;
+    @apply bg-canvas text-ink;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 25px;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1 {
@@ -28,21 +30,42 @@
     @apply text-h3;
   }
 
-  /* Every clickable surface gets a visible 2px purple focus ring. */
+  /* Every clickable surface gets a visible focus ring in the accent. */
   :focus-visible {
-    outline: 2px solid theme("colors.purple");
+    outline: 2px solid theme("colors.accent");
     outline-offset: 2px;
   }
 }
 
 @layer components {
   .card {
-    @apply bg-paper border border-line rounded-2xl shadow-sm;
+    @apply rounded-2xl border border-line bg-paper shadow-sm;
   }
 
-  .placeholder-slot {
-    @apply rounded-2xl border border-dashed border-line bg-lilac/50 p-5;
+  /* The one accent button. */
+  .btn-accent {
+    @apply rounded-xl bg-accent px-4 py-2.5 text-body font-semibold text-paper transition-colors duration-200 hover:bg-accentHi disabled:cursor-not-allowed disabled:bg-line disabled:text-ash;
   }
+
+  .btn-ghost {
+    @apply rounded-xl border border-line bg-paper px-4 py-2.5 text-body font-semibold text-ink transition-colors duration-200 hover:border-ash;
+  }
+}
+
+/* --- Motion ---------------------------------------------------------------
+ * A tight motion budget: a single fade-up on scroll, a card hover scale, the
+ * bar-chart width transition, and the drag lift. Nothing else animates.
+ */
+
+/* Fade-up on scroll: hidden until IntersectionObserver adds .is-visible. */
+.fade-up {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @keyframes revealIn {
@@ -55,14 +78,24 @@
     transform: none;
   }
 }
-
 .reveal-in {
   animation: revealIn 0.22s ease-out;
+}
+
+/* A signal card being dragged (native DnD ghost aside, we also dim the source). */
+.is-dragging {
+  opacity: 0.45;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  /* Never leave fade-up content invisible when motion is disabled. */
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
   *,
   *::before,
@@ -73,18 +106,18 @@
   }
 }
 
-/*
- * Printing a Diagnostic Note: `.print-note` is display:none on screen and
- * only appears for print, while everything else (`print:hidden` on the
- * TopBar, Footer and the normal page body) collapses to nothing — plain
- * display toggling, no absolute-position/visibility tricks that leave a
- * trail of blank pages behind a long scrolling page.
+/* --- Print: Diagnostic Note only -----------------------------------------
+ * `.print-note` is display:none on screen and the only thing that appears in
+ * a print job; everything else collapses (print:hidden on chrome + page).
  */
 .print-note {
   display: none;
 }
 
 @media print {
+  body {
+    background: #fff;
+  }
   .print-note {
     display: block;
   }

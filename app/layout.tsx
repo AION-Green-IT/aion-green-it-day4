@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { content } from "@/lib/content";
+import { CASE } from "@/lib/module3";
 import { TopBar } from "@/components/chrome/TopBar";
 import { Footer } from "@/components/chrome/Footer";
-import { ResetBoundary } from "@/components/chrome/ResetBoundary";
 
 export const metadata: Metadata = {
-  title: `AION Green IT — ${content.meta.title}`,
+  title: `AION Green IT — ${CASE.module}`,
   description:
-    "E-waste and carbon accounting in IT — the learner working companion for Module 2, Day 3.",
+    "Green IT in IT strategy and procurement — the learner working companion for Module 3, Day 4. Case: Solenne Industrial Technik AG.",
 };
 
 export default function RootLayout({
@@ -18,10 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col bg-paper">
+      <body className="flex min-h-screen flex-col bg-canvas">
         <TopBar />
         <main className="mx-auto w-full max-w-[1100px] flex-1 px-4 md:px-6">
-          <ResetBoundary>{children}</ResetBoundary>
+          {children}
         </main>
         <Footer />
       </body>

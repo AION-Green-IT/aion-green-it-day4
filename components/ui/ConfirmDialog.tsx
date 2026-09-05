@@ -69,7 +69,7 @@ export function ConfirmDialog({
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: "rgba(35,26,69,0.55)" }}
+      style={{ backgroundColor: "var(--backdrop)" }}
       onClick={(e) => {
         if (e.target === e.currentTarget) onCancel();
       }}
@@ -93,14 +93,14 @@ export function ConfirmDialog({
             ref={cancelRef}
             type="button"
             onClick={onCancel}
-            className="rounded-xl border border-line px-4 py-2 text-body font-semibold text-navy transition-colors duration-200 hover:bg-lilac hover:underline"
+            className="rounded-xl border border-line px-4 py-2 text-body font-semibold text-ink transition-colors duration-200 hover:border-ash"
           >
             {cancelLabel}
           </button>
           <button
             type="button"
             onClick={onConfirm}
-            className="rounded-xl bg-danger px-4 py-2 text-body font-semibold text-paper transition-colors duration-200 hover:bg-navy"
+            className="rounded-xl bg-danger px-4 py-2 text-body font-semibold text-paper transition-colors duration-200 hover:opacity-90"
           >
             {confirmLabel}
           </button>
