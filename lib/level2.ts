@@ -29,54 +29,118 @@ export const STORY2 = {
   opsLabel: "Operational weakness vs. strategic deficit",
 } as const;
 
+export type Reference2 = { label: string; url: string };
+
+/** Key into components/level2/StudyDiagrams2.tsx. */
+export type Level2DiagramKey =
+  | "readinessMatrix"
+  | "macc"
+  | "compoundingCurve"
+  | "tcoVsPrice"
+  | "governanceAnchor"
+  | "capitalCeiling";
+
 export type Level2Card = {
   id: string;
   icon: IconKey;
   title: string;
-  body: string;
+  concept: string;
+  example: string;
+  whyItMatters: string;
+  diagram: Level2DiagramKey;
+  references: Reference2[];
   usedIn: string;
 };
 
 export const MATERIAL2: { kicker: string; title: string; intro: string; cards: Level2Card[] } = {
   kicker: "Study material",
-  title: "Five tools for the decision",
+  title: "Six tools for the decision",
   intro:
-    "Each card is a tool you use in the task below — the label shows where. Open the one you need as you go.",
+    "Each card is a tool you use in the task below — the label shows where. Same depth as Level 1: a framework, a concrete example, a diagram, and a reference. Open the one you need as you go.",
   cards: [
     {
       id: "l2m1",
       icon: "target",
-      title: "Ready to act vs. important",
-      body: "An area can be strategically critical and still not be where you should move first if the organization isn't ready to execute there yet. Readiness and importance are two different questions — score them separately.",
+      title: "Readiness vs. importance",
+      concept:
+        "An area can be strategically critical and still be the wrong place to move first if the organization lacks the capability, data, or authority to execute there today. Readiness and importance are independent axes — plotting them separately, rather than folding both into one \"priority\" score, is what a 2×2 prioritization matrix is for: it exposes what is important and ready (act now), important but not ready (build capability first), ready but less important (a quick win), or neither (park it).",
+      example:
+        "A common real pattern: \"supplier sustainability screening\" often rates as highly important yet scores low on readiness because no baseline supplier data exists to screen against — it looks urgent on paper but stalls without that foundation. \"Publishing a target picture\" often scores high on readiness (it needs no new data, no new authority) even where its immediate importance looks modest — which is exactly why cheap, ready moves get sequenced first even when a harder, more important move is the real long-term prize.",
+      whyItMatters:
+        "The importance/readiness matrix is one of the most common tools used in real strategy and portfolio-prioritization workshops — noticing when \"important\" and \"feels urgent\" have quietly diverged is a core diagnostic skill.",
+      diagram: "readinessMatrix",
+      references: [{ label: "Atlassian — Prioritization frameworks", url: "https://www.atlassian.com/agile/product-management/prioritization-framework" }],
       usedIn: "Readiness Scorecard",
     },
     {
       id: "l2m2",
-      icon: "lever",
-      title: "Why procurement compounds",
-      body: "A one-time investment fixes one instance. A binding procurement criterion applies to every purchase after it — its impact compounds over each future cycle, which is why it scores differently on long-term leverage than it first appears to.",
-      usedIn: "Option B",
+      icon: "coins",
+      title: "Marginal abatement cost: why the same euro buys less",
+      concept:
+        "A marginal abatement cost curve (MACC) ranks every available reduction action from cheapest to most expensive cost-per-tonne, then stacks them left to right. The shape is never flat: the leftmost actions — replacing the worst-performing share of a fleet — deliver the largest reduction per euro; the rightmost actions necessarily reach into devices that were already reasonably efficient, so the same euro buys a shrinking reduction. This is not a quirk of IT hardware — it is the same curve shape used in national and corporate decarbonization planning worldwide.",
+      example:
+        "Applied to Option C: the first 100 units replaced are, by construction, the fleet's most inefficient — the €800-per-unit spend buys its largest possible CO2 return there. By the 300th–400th unit, the program is necessarily reaching into the fleet's more efficient half, so the same €800 buys less — exactly the mechanism behind the panel's \"CO2 per euro drops sharply past ~250 units\" risk flag once you cross that volume.",
+      whyItMatters:
+        "MACC curves are the standard tool climate economists and corporate sustainability teams use to sequence abatement spending — it is the reason the cheapest overall path to a target is almost never \"the single biggest purchase.\"",
+      diagram: "macc",
+      references: [{ label: "Wikipedia — Marginal abatement cost", url: "https://en.wikipedia.org/wiki/Marginal_abatement_cost" }],
+      usedIn: "Option C",
     },
     {
       id: "l2m3",
-      icon: "coins",
-      title: "Diminishing returns in hardware investment",
-      body: "Replacing the most energy-inefficient devices first yields the largest CO2 gain per euro. Past a certain volume, you're replacing devices that were already reasonably efficient — the same euro buys less.",
-      usedIn: "Option C",
+      icon: "lever",
+      title: "Why procurement compounds where a purchase doesn't",
+      concept:
+        "A one-time purchase, even a large one, resolves exactly the units it touches, once. A binding procurement criterion, written into the standing specification, resolves every unit purchased under it from that point on, indefinitely, without being re-decided. Comparing options on \"impact this year\" alone misses this: a one-off purchase's tonnes are real but bounded; a policy's tonnes start smaller but do not stop accumulating once the tender closes.",
+      example:
+        "At Tier 2, Option B's year-one estimate — roughly 7% of new-purchase footprint — looks modest next to Option C's absolute tonnes. But every future contract renewal inherits the same criterion at zero additional decision cost, while Option C's effect is capped at whatever was actually replaced this year. Over several years the compounding option can out-perform the larger one-time purchase — the exact trade-off this task leaves you to weigh, not resolves for you.",
+      whyItMatters:
+        "This is why procurement policy, not a single capex project, is usually rated the higher-leverage lever in real corporate sustainability plans — the same logic as Level 1's single action vs. strategic embedding, now with numbers attached.",
+      diagram: "compoundingCurve",
+      references: [{ label: "ISO 20400 — Sustainable procurement", url: "https://www.iso.org/standard/63026.html" }],
+      usedIn: "Option B",
     },
     {
       id: "l2m4",
       icon: "cart",
-      title: "Reading a price premium correctly",
-      body: "A stricter supplier requirement can raise short-term procurement cost while lowering total lifecycle cost. The two numbers answer different questions — don't let one silently stand in for the other.",
+      title: "Reading a price premium against total cost, not sticker price",
+      concept:
+        "A stricter supplier requirement raising the tender price by a stated percentage answers \"what does this cost to buy?\" — it does not answer \"what does this cost to own?\" Total cost of ownership (TCO) adds energy consumption, maintenance, and end-of-life cost across the full service life. A higher purchase price frequently carries a lower TCO once those downstream costs are counted, and a lower purchase price frequently hides a higher one. Reporting only the premium, without the TCO it is meant to offset, answers half the question.",
+      example:
+        "Panel B's \"+7% price premium on new contracts\" at Tier 2 is a purchase-price number. It says nothing, by itself, about whether the resulting contracts cost less to run and dispose of over their service life — exactly the number a real procurement business case needs beside it before a CFO signs off, and exactly the gap this task leaves for you to notice rather than resolves for you.",
+      whyItMatters:
+        "Confusing purchase price with total cost of ownership is one of the most common, and most consequential, errors in real IT procurement business cases — telling the two apart is core vocabulary for the role.",
+      diagram: "tcoVsPrice",
+      references: [{ label: "Investopedia — Total Cost of Ownership", url: "https://www.investopedia.com/terms/t/totalcostofownership.asp" }],
       usedIn: "Option B",
     },
     {
       id: "l2m5",
       icon: "gavel",
-      title: "Why single moves still need governance",
-      body: "A strategy document has no direct, measurable output this year. Its value is that it makes every later decision faster and more consistent — without it, options B and C are one-off actions with no binding logic behind them.",
+      title: "Why a strategy still needs governance to convert into action",
+      concept:
+        "A strategy document produces no emissions reduction of its own — its entire value is indirect: it is what makes actions like Options B and C consistent and sustained rather than one-off moves that quietly lapse once the person who championed them moves on. Without a named owner and a governance structure, a \"strategy\" is a document, not a control — B and C's numbers can drift back toward baseline once nobody is left accountable for holding the line.",
+      example:
+        "This is why Option A's own risk flag is explicitly a governance risk, not a cost or time risk — the €35,000–€55,000 question is not \"can we afford a strategy,\" it is \"will this survive the next reorganization without someone whose job depends on B and C's criteria being met.\"",
+      whyItMatters:
+        "Funding \"the strategy\" as its own line item, distinct from the actions it governs, is a genuinely counter-intuitive but standard move in real corporate transformation budgeting.",
+      diagram: "governanceAnchor",
+      references: [{ label: "ISACA — COBIT", url: "https://www.isaca.org/resources/cobit" }],
       usedIn: "Option A",
+    },
+    {
+      id: "l2m6",
+      icon: "scale",
+      title: "Choosing under a hard ceiling: capital rationing",
+      concept:
+        "Capital rationing is the finance term for exactly Solenne's situation: a fixed pool of funds and multiple worthwhile candidates whose combined cost exceeds it, forcing a ranked choice rather than a separate yes/no on each. The standard approach ranks candidates by return-per-euro — here, tonnes-per-euro and leverage-per-euro — rather than by absolute size: a large investment is not automatically the right one under rationing; a smaller investment with a better ratio, or a policy with a longer payoff tail, can rank ahead of it.",
+      example:
+        "Solenne's €120,000 ceiling cannot fund all three options at once — their combined cost already exceeds it well before Option C's units are even maximised. The task does not ask which option is \"good\"; every option in front of you is individually defensible. It asks which one earns the limited capital first — a ranking question, not a yes/no one.",
+      whyItMatters:
+        "Ranking by return-per-euro under a ceiling, rather than by project size, is standard corporate-finance vocabulary for exactly this kind of budget-constrained decision — and precisely what Section 3.4 asks you to justify with a number.",
+      diagram: "capitalCeiling",
+      references: [{ label: "Investopedia — Capital Rationing", url: "https://www.investopedia.com/terms/c/capitalrationing.asp" }],
+      usedIn: "the whole decision",
     },
   ],
 };

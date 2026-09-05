@@ -39,22 +39,35 @@ export const COMPONENT_COLORS = {
 
 export type ComponentKey = keyof typeof COMPONENT_COLORS;
 
-export type DiagramKey = "timeline" | "orgchart" | "stagegate" | "suppliercycle" | "accountability";
+export type DiagramKey =
+  | "timeline"
+  | "orgchart"
+  | "stagegate"
+  | "suppliercycle"
+  | "accountability"
+  | "portfolioCeiling"
+  | "impactEffort";
+
+export type Reference3 = { label: string; url: string };
 
 export type Level3Card = {
   id: string;
-  component: ComponentKey;
+  /** null for the two cards not tied to a colour-coded memo field (budget, sequencing). */
+  component: ComponentKey | null;
   diagram: DiagramKey;
   title: string;
   usedIn: string;
-  body: string;
+  concept: string;
+  example: string;
+  whyItMatters: string;
+  references: Reference3[];
 };
 
 export const MATERIAL3: { kicker: string; title: string; intro: string; cards: Level3Card[] } = {
   kicker: "Study material",
-  title: "Five building blocks of the memo",
+  title: "Seven building blocks of the memo",
   intro:
-    "Each card maps to exactly one field in the memo builder — the colour tag matches. Open the one you need as you draft.",
+    "Five cards map to the memo's five colour-coded fields; two map to the budget allocator and the sequencing widget — every part of Task 3 has a tool behind it. Open the one you need as you draft.",
   cards: [
     {
       id: "l3m1",
@@ -62,7 +75,16 @@ export const MATERIAL3: { kicker: string; title: string; intro: string; cards: L
       diagram: "timeline",
       title: "Target Picture",
       usedIn: "Target Picture field",
-      body: "A target picture is not an aspiration (\"greener IT\") — it's a baseline, a target year, and a measurable metric. This is the same structure real companies use for emissions targets (a baseline year, a target year, a stated % reduction — the pattern behind frameworks like the GHG Protocol and Science Based Targets).",
+      concept:
+        "A target picture only functions as a target once it has three parts that can each be checked independently: a baseline (measured now, in the unit the target will be reported in), a target year (a specific date a stakeholder can hold you to), and a stated percentage or absolute reduction — not a direction word like \"less.\" This is exactly the structure required by the GHG Protocol's target-setting guidance, and the structure the Science Based Targets initiative (SBTi) checks for before validating a corporate target.",
+      example:
+        "\"Reduce IT's footprint\" cannot be checked by anyone outside the room where it was said. \"By 2030, reduce IT-related emissions 30% from a 1,200 t CO2e/yr baseline\" can be checked by anyone holding the baseline number and a calendar — which is the entire point: a target a board can later hold you to is, by construction, one specific enough to fail.",
+      whyItMatters:
+        "SBTi near-term target validation is now a common requirement in enterprise sustainability disclosure — a target that cannot be stated in this three-part form cannot be validated, however real the underlying work is.",
+      references: [
+        { label: "GHG Protocol", url: "https://ghgprotocol.org/" },
+        { label: "Science Based Targets initiative", url: "https://sciencebasedtargets.org/" },
+      ],
     },
     {
       id: "l3m2",
@@ -70,7 +92,13 @@ export const MATERIAL3: { kicker: string; title: string; intro: string; cards: L
       diagram: "orgchart",
       title: "Governance",
       usedIn: "Governance field",
-      body: "Governance means naming who decides, who is consulted, and who is only informed — the RACI pattern used in IT governance frameworks like COBIT and in corporate ESG steering committees. A structure with more than one \"Accountable\" person functions, in practice, like a structure with none.",
+      concept:
+        "RACI — Responsible, Accountable, Consulted, Informed — assigns exactly one of four roles to everyone touching a decision, and the framework's entire value sits in one constraint: exactly one role may be Accountable for a given outcome. Responsible parties do the work; Consulted parties are asked before a decision; Informed parties are told after. A structure with two \"Accountable\" owners has not doubled its oversight — it has removed the one property that made the framework useful, because when an outcome slips, two accountable owners can each point to the other.",
+      example:
+        "This is why this task's Governance field enforces \"only one role can be Accountable\" as a hard rule, not a style preference — it mirrors exactly how COBIT-based IT governance charters and corporate ESG steering-committee terms of reference are written in practice.",
+      whyItMatters:
+        "RACI is close to universal in enterprise governance documentation — reading and drafting one correctly, including catching a double-Accountable error, is a baseline expectation in an IT or sustainability governance role.",
+      references: [{ label: "ISACA — COBIT", url: "https://www.isaca.org/resources/cobit" }],
     },
     {
       id: "l3m3",
@@ -78,7 +106,13 @@ export const MATERIAL3: { kicker: string; title: string; intro: string; cards: L
       diagram: "stagegate",
       title: "Investment Logic",
       usedIn: "Investment Logic field",
-      body: "Sustainability criteria work when they sit inside an investment decision gate, not attached after the decision is already made — the stage-gate pattern standard in corporate IT investment governance, where a business case must pass a defined checkpoint before funding is released.",
+      concept:
+        "A stage-gate process breaks an investment from idea to delivery into fixed checkpoints — typically idea, business case, approval, execution, review — each requiring specific evidence before the project passes to the next stage. Inserting a sustainability criterion as a mandatory question at one specific gate, rather than \"somewhere in the process,\" is what makes it enforceable: a gate either releases funding or it doesn't, so a criterion attached to a gate cannot be quietly skipped the way one attached to a general policy statement can.",
+      example:
+        "Placing the check at \"Business Case\" — rather than earlier at \"Idea,\" where the numbers aren't yet known, or later at \"Approval,\" where the case is already largely locked in — is the standard placement in real stage-gate models, precisely because it is the last point where the criterion can still change which project gets built, not just how it gets reported afterward.",
+      whyItMatters:
+        "Stage-gate investment processes are the standard structure for enterprise IT capital approval — knowing which gate a given control belongs at, and why, is a core project-governance skill.",
+      references: [{ label: "Wikipedia — Phase–gate process", url: "https://en.wikipedia.org/wiki/Phase%E2%80%93gate_process" }],
     },
     {
       id: "l3m4",
@@ -86,7 +120,13 @@ export const MATERIAL3: { kicker: string; title: string; intro: string; cards: L
       diagram: "suppliercycle",
       title: "Supplier Control",
       usedIn: "Supplier Control field",
-      body: "One-time vetting is weak. Industry practice (the pattern behind ISO 20400 sustainable procurement guidance) treats supplier control as a repeating cycle: selection, onboarding, periodic review, re-certification — and back to selection at contract renewal.",
+      concept:
+        "A one-time supplier vetting event certifies a supplier's practices at a single point in time and then goes stale — labour conditions, ownership, and environmental performance in a multi-tier supply chain change continuously, and nothing in a one-time check catches that drift. ISO 20400's guidance treats supplier sustainability management as a closed loop instead: selection, onboarding, periodic review, and re-certification at contract renewal, feeding back into the next selection round — a repeated cadence, not a filed-away event.",
+      example:
+        "A supplier that passed a rigorous audit three years ago, before a change of ownership or a new sub-supplier, gives zero visibility into whether the conditions that earned that original pass still hold today — exactly why review cadence (Annual / Biannual / Continuous monitoring), not initial vetting alone, is the field this task actually asks you to set.",
+      whyItMatters:
+        "Supply-chain due-diligence regulation is moving toward requiring ongoing monitoring, not point-in-time certification — the cadence question is becoming a compliance question, not only a best-practice one.",
+      references: [{ label: "ISO 20400 — Sustainable procurement", url: "https://www.iso.org/standard/63026.html" }],
     },
     {
       id: "l3m5",
@@ -94,7 +134,41 @@ export const MATERIAL3: { kicker: string; title: string; intro: string; cards: L
       diagram: "accountability",
       title: "Accountability",
       usedIn: "Accountability field",
-      body: "Accountable is not the same as responsible. Accountable means one named person ultimately answers for the outcome, even when the work is delegated. \"Everyone is responsible\" functions, in practice, as no one being accountable.",
+      concept:
+        "Responsible describes who does the work; accountable describes who answers for the outcome even when most of the work was delegated — the two are deliberately not the same role in a well-formed RACI, and collapsing them (\"the team is accountable\") removes the one thing accountability was for: a single name a board, an auditor, or a client can ask \"why did this not happen.\" A department is not a role a person occupies, so it cannot be held to an outcome the way a named person or position can.",
+      example:
+        "\"The IT team\" cannot attend a steering-committee meeting to explain a missed target; \"Head of IT Sustainability\" can. This is the exact, deliberately narrow distinction the Accountability field's validation checks for when it rejects a department name.",
+      whyItMatters:
+        "The gap between \"responsible\" and \"accountable\" is one of the most commonly cited real governance failures in post-mortems of stalled sustainability programmes — naming an actual accountable role, not a group, is the single highest-leverage governance decision in this memo.",
+      references: [{ label: "ISACA — COBIT", url: "https://www.isaca.org/resources/cobit" }],
+    },
+    {
+      id: "l3m6",
+      component: null,
+      diagram: "portfolioCeiling",
+      title: "Allocating a fixed pool across simultaneous commitments",
+      usedIn: "Budget allocator",
+      concept:
+        "Unlike Level 2's single go/no-go choice among three mutually exclusive options, the budget allocator asks you to fund several line items from the same pool at once — the chosen initiative, governance setup, and, optionally, a data audit — a portfolio allocation problem, not a single ranking. The discipline is the one used in real capital budgeting under a hard ceiling: total every commitment before adding the next one, and treat \"it's a good idea\" as necessary but not sufficient — the pool does not grow because an item is worth funding.",
+      example:
+        "Governance and accountability setup (€25,000) is not optional in the sense that skipping it is free — Level 2's own material already established that actions without governance tend to lapse — but it still competes for the same euro as the chosen initiative and the audit. Committing to all three without checking the running total is exactly how real budget overruns happen: every individual line item was justified; the sum was never checked until after the commitments were made.",
+      whyItMatters:
+        "Reading a running total against a ceiling before committing further, rather than after, is the entire discipline separating a funded portfolio from an overspent one — and it is checked mechanically in this task's own budget bar.",
+      references: [{ label: "Investopedia — Capital Rationing", url: "https://www.investopedia.com/terms/c/capitalrationing.asp" }],
+    },
+    {
+      id: "l3m7",
+      component: null,
+      diagram: "impactEffort",
+      title: "Sequencing by impact and effort, not by preference",
+      usedIn: "Implementation sequence",
+      concept:
+        "An impact/effort matrix sorts candidate actions along two axes — how much they move the outcome, and how much time or organizational effort they take to stand up — producing a natural sequencing logic without a single \"priority\" score: high-impact/low-effort moves go first (they pay back fastest and build credibility), high-impact/high-effort moves become the medium-term programme once the quick wins have funded the case for them, and everything else waits. Sequencing by personal preference, or by whichever action was raised first in a meeting, produces a roadmap that reads to a board as unordered.",
+      example:
+        "\"Assign a named accountable owner\" costs almost nothing to execute and unlocks every other governance action that depends on having one — a textbook short-term move. \"Formalize the supplier re-certification cycle\" requires new supplier contracts and monitoring infrastructure to exist first — a textbook structural move a board would expect sequenced later, however important it eventually becomes.",
+      whyItMatters:
+        "Impact/effort sequencing is one of the most common frameworks used to build a credible-looking implementation roadmap in a real board memo — an illogical sequence is one of the fastest ways a reviewer loses confidence in the rest of the memo, independent of whether the individual actions were sound.",
+      references: [{ label: "Atlassian — Prioritization frameworks", url: "https://www.atlassian.com/agile/product-management/prioritization-framework" }],
     },
   ],
 };

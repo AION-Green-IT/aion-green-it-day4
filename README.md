@@ -88,7 +88,12 @@ as a format to copy. Placeholders are kept short (a sentence starter like
 - **Story continuation** — same motif with the Procurement lever pulsing, plus a
   collapsible read-only copy of the learner's own Diagnostic Note. Opening it
   unlocks two otherwise-locked sliders.
-- **5 material cards**, each tagged with the task part it feeds ("Used in: …").
+- **6 deep material cards**, same standard as Level 1 (framework + real example
+  + diagram + career-readiness note + verified references), each tagged with
+  the task part it feeds: readiness vs. importance (2×2 matrix), the marginal
+  abatement cost curve behind Option C's diminishing returns, why procurement
+  compounds, TCO vs. sticker price, why a strategy still needs governance, and
+  capital rationing under a hard ceiling.
 - **Task 2 — Calculation Note**
   - Readiness Scorecard: 5 sliders (1–5) with 1/3/5 anchor tooltips and a live
     5-axis radar; Procurement & Governance stay locked until the note is reviewed.
@@ -107,9 +112,14 @@ as a format to copy. Placeholders are kept short (a sentence starter like
 
 - **Story continuation** — the motif is now fully wired with a dashed, pulsing
   "Board Decision" node; below it, both prior notes are shown read-only.
-- **5 material cards**, each colour-tagged to one memo component and holding an
-  animated SVG (target timeline, RACI org-chart, stage-gate, supplier cycle,
-  accountability) that plays on open.
+- **7 deep material cards** — the 5 original ones (colour-tagged to a memo
+  field: target timeline, RACI org-chart, stage-gate, supplier cycle,
+  accountability) deepened to Level 1's standard, plus **2 new ones** closing
+  a real coverage gap: the budget allocator and the sequencing widget
+  previously had no dedicated material at all. Added: capital rationing
+  across simultaneous commitments (budget allocator) and impact/effort
+  sequencing (implementation roadmap) — each with its own diagram and
+  verified references.
 - **Task 3 — Decision Memo (split-screen builder)**
   - Left = builder, right = the memo assembling live in reading order, opening by
     quoting the learner's own Level 1 gaps and Level 2 priority.
@@ -122,6 +132,23 @@ as a format to copy. Placeholders are kept short (a sentence starter like
   - Mandatory "measure you postponed" closing field.
   - **Submit** → a combined three-note **Portfolio** PDF (Diagnostic +
     Calculation + Decision Memo) under one header.
+
+## Time budget
+
+The class allocates 2h / 1.5h / 1.5h to Levels 1/2/3. Rough estimate for a
+learner engaging seriously with the deepened material (reading each card's
+framework + example, not skimming) plus the task itself:
+
+| Level | Material (reading) | Task (interacting + writing) | Total | Allocated |
+|---|---|---|---|---|
+| 1 | ~35–45 min (11 cards) | ~60–80 min (sort + check + 2 reflections) | ~95–125 min | 120 min |
+| 2 | ~20–25 min (6 cards) | ~50–70 min (scorecard + 3 panels + table + 2 reflections) | ~70–95 min | 90 min |
+| 3 | ~28–35 min (7 cards) | ~60–85 min (budget + 5 fields + sequencing + closing) | ~90–120 min | 90 min |
+
+This was the check behind deepening Level 2/3's material from one-line
+summaries to Level 1's standard (framework + example + diagram + reference):
+shallow material was the actual shortfall against the allocated time, not the
+task mechanics, which were already interactive and multi-part.
 
 ## Run it
 

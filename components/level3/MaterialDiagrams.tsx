@@ -143,12 +143,60 @@ function Accountability({ color }: DProps) {
   );
 }
 
+/** Multiple simultaneous commitments packed against one fixed ceiling. */
+function PortfolioCeiling({ color }: DProps) {
+  const ceilY = 26;
+  const items = [
+    { y: 40, w: 150, t: "Chosen initiative" },
+    { y: 62, w: 90, t: "Governance €25k" },
+    { y: 84, w: 72, t: "Audit €20k (optional)" },
+  ];
+  return (
+    <svg viewBox="0 0 300 150" role="img" aria-label="Three commitments packed against one fixed budget ceiling">
+      <line x1="30" y1={ceilY} x2="30" y2="112" stroke="#E2E5E9" strokeWidth="1" />
+      <line className="anim-draw" x1="30" y1={ceilY} x2="264" y2={ceilY} stroke={color} strokeWidth="2" />
+      <text x="264" y={ceilY - 8} textAnchor="end" fontSize="8.5" fontWeight={600} fill={color} fontFamily={FONT}>€120,000 ceiling</text>
+      {items.map((it) => (
+        <g key={it.t}>
+          <rect x="30" y={it.y} width={it.w} height="16" fill="#FFFFFF" stroke={color} strokeWidth="1.4" />
+          <text x="36" y={it.y + 11} fontSize="7.5" fill="#16191D" fontFamily={FONT}>{it.t}</text>
+        </g>
+      ))}
+      <text x="150" y="128" textAnchor="middle" fontSize="8" fill="#5E6670" fontFamily={FONT}>total every line before committing the next one</text>
+    </svg>
+  );
+}
+
+/** Impact vs effort — quick wins first, structural work later. */
+function ImpactEffort({ color }: DProps) {
+  const x0 = 56, y0 = 16, w = 190, h = 100;
+  return (
+    <svg viewBox="0 0 300 150" role="img" aria-label="Impact versus effort quadrant, sequencing quick wins before structural work">
+      <rect x={x0} y={y0} width={w} height={h} fill="none" stroke="#E2E5E9" strokeWidth="1" />
+      <line x1={x0 + w / 2} y1={y0} x2={x0 + w / 2} y2={y0 + h} stroke="#E2E5E9" strokeWidth="1" />
+      <line x1={x0} y1={y0 + h / 2} x2={x0 + w} y2={y0 + h / 2} stroke="#E2E5E9" strokeWidth="1" />
+      <text x={x0 - 6} y={y0 + 10} textAnchor="end" fontSize="7.5" fill="#5E6670" fontFamily={FONT}>High impact</text>
+      <text x={x0 - 6} y={y0 + h - 2} textAnchor="end" fontSize="7.5" fill="#5E6670" fontFamily={FONT}>Low impact</text>
+      <text x={x0} y={y0 + h + 14} fontSize="7.5" fill="#5E6670" fontFamily={FONT}>Low effort</text>
+      <text x={x0 + w} y={y0 + h + 14} textAnchor="end" fontSize="7.5" fill="#5E6670" fontFamily={FONT}>High effort</text>
+      <text x={x0 + 8} y={y0 + 22} fontSize="8" fontWeight={600} fill={color} fontFamily={FONT}>1. Quick wins</text>
+      <text x={x0 + w / 2 + 8} y={y0 + 22} fontSize="8" fill="#16191D" fontFamily={FONT}>2. Structural</text>
+      <circle className="anim-scale-in" cx={x0 + 30} cy={y0 + 34} r="5" fill={color} />
+      <text x={x0 + 30} y={y0 + 50} textAnchor="middle" fontSize="6.5" fill="#5E6670" fontFamily={FONT}>Named owner</text>
+      <circle cx={x0 + w / 2 + 45} cy={y0 + 40} r="5" fill="#FFFFFF" stroke={color} strokeWidth="1.4" />
+      <text x={x0 + w / 2 + 45} y={y0 + 56} textAnchor="middle" fontSize="6.5" fill="#5E6670" fontFamily={FONT}>Re-cert. cycle</text>
+    </svg>
+  );
+}
+
 const REGISTRY: Record<DiagramKey, (p: DProps) => JSX.Element> = {
   timeline: Timeline,
   orgchart: OrgChart,
   stagegate: StageGate,
   suppliercycle: SupplierCycle,
   accountability: Accountability,
+  portfolioCeiling: PortfolioCeiling,
+  impactEffort: ImpactEffort,
 };
 
 export function MaterialDiagram({ name, color }: { name: DiagramKey; color: string }) {
